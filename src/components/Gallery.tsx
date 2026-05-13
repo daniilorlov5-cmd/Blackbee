@@ -103,7 +103,7 @@ export function Gallery() {
         <div className="mb-16 md:mb-24 space-y-8 md:space-y-12">
           <div className="max-w-4xl">
             <span className="text-bee-yellow text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.4em] block mb-2 md:mb-4 italic">Архив_Кейсов</span>
-            <h2 className="text-4xl md:text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] italic skew-heading">
+            <h2 className="text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-[0.85] italic skew-heading">
               Галерея<br /><span className="text-bee-yellow">Спецзаказов</span>
             </h2>
           </div>

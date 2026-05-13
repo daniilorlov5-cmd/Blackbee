@@ -19,11 +19,11 @@ function BeeLogoModel({ isCtrlPressed }: { isCtrlPressed: boolean }) {
   const wingShape = useMemo(() => {
     const shape = new THREE.Shape();
     // Top point
-    shape.moveTo(0, 1.2);
+    shape.moveTo(0, 1.4);
     // Outer bottom point
-    shape.lineTo(-1.3, -0.1);
+    shape.lineTo(-1.5, -0.1);
     // Inner bottom point
-    shape.lineTo(-0.85, -1.2);
+    shape.lineTo(-1.0, -1.4);
     shape.closePath();
     return shape;
   }, []);
@@ -139,7 +139,7 @@ export function Hero() {
               <span className="text-bee-yellow text-xs md:text-sm font-bold uppercase tracking-[0.2em] md:tracking-[0.4em] bg-bee-yellow/5 px-4 py-2 border border-bee-yellow/20 inline-block mb-4">Аддитивное производство полного цикла</span>
             </div>
             
-            <h1 className="text-[14vw] md:text-[7vw] lg:text-[90px] leading-[0.9] font-black tracking-tighter uppercase mb-6 md:mb-10 italic skew-heading drop-shadow-2xl max-w-2xl">
+            <h1 className="text-[14vw] md:text-6xl lg:text-7xl xl:text-[90px] leading-[0.9] font-black tracking-tighter uppercase mb-6 md:mb-10 italic skew-heading drop-shadow-2xl max-w-2xl">
               Идея —<br className="hidden md:block" />
               в <span className="text-bee-yellow">объект</span><br className="hidden md:block" />
               <span className="md:hidden"> </span>за 48 часов

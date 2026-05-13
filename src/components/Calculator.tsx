@@ -619,7 +619,7 @@ export function Calculator() {
           <div className="flex flex-col justify-center">
             <div className="mb-8 md:mb-12">
               <span className="text-bee-yellow text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.4em] block mb-2 md:mb-4 italic">Калькулятор</span>
-              <h2 className="text-4xl md:text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.85] italic skew-heading mb-6 md:mb-8">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.85] italic skew-heading mb-6 md:mb-8">
                 Рассчитать<br /><span className="text-bee-yellow">стоимость</span>
               </h2>
             </div>
