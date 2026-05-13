@@ -118,8 +118,7 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-16 mb-16 md:mb-24">
             <div className="col-span-1 lg:col-span-2">
               <div className="flex items-center gap-4 mb-8">
-                <Logo className="w-10 h-10 text-bee-logo" />
-                <span className="font-display text-2xl font-bold tracking-tighter uppercase">Black Bee</span>
+                <Logo className="h-8 md:h-10 text-bee-logo" />
               </div>
               <p className="text-bee-text-muted max-w-sm mb-4 leading-relaxed text-sm font-light">
                 Промышленная сеть аддитивного производства. 

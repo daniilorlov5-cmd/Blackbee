@@ -23,7 +23,7 @@ export function TelemetryRails() {
     "ШИФРОВАНИЕ: AES-256-GCM",
     "СТАТУС_УЗЛА: ОПТИМАЛЬНО",
     "ЗАДЕРЖКА: 12мс",
-    "ДВИЖОК_РЕНДЕРА: BLK_BEE_v4",
+    "ДВИЖОК_РЕНДЕРА: BLK_BEE",
   ];
 
   return (

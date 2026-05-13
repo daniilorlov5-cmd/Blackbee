@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
   --color-bee-black: var(--bg-primary);
@@ -42,6 +43,10 @@ html {
   --selection-text: #000000;
 }
 
+:root.light .invert-logo {
+  filter: invert(0);
+}
+
 @layer base {
   body {
     @apply bg-bee-black text-bee-white font-sans;
@@ -72,6 +77,10 @@ html {
 
   .animate-pulse-yellow {
     animation: pulse-yellow 2s infinite;
+  }
+
+  .invert-logo {
+    filter: invert(1);
   }
 
   h1, h2, h3, h4, h5, h6 {
