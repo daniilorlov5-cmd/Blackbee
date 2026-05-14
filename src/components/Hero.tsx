@@ -114,7 +114,7 @@ export function Hero() {
             className="w-full h-full flex items-center justify-center pointer-events-auto"
           >
             <div className="w-full h-full max-w-[1000px] max-h-[1000px]">
-              <Canvas camera={{ position: [0, 0, 8], fov: 35 }} dpr={[1, 2]} gl={{ alpha: true }}>
+              <Canvas camera={{ position: [0, 0, 8], fov: 35 }} dpr={[1, 1.5]} gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}>
                 <ambientLight intensity={0.5} />
                 <pointLight position={[10, 10, 10]} intensity={1.5} />
                 <spotLight position={[-10, 10, 10]} angle={0.2} penumbra={1} intensity={1} />

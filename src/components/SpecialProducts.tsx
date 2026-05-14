@@ -89,7 +89,11 @@ export function SpecialProducts() {
 
           <div className="relative aspect-square md:aspect-[4/5] w-full max-w-md mx-auto lg:max-w-none bg-bee-gray border border-bee-border overflow-hidden">
              <div className="absolute inset-0">
-                <Canvas camera={{ position: [100, 100, 100], fov: 40 }}>
+                <Canvas 
+                  dpr={[1, 1.5]} 
+                  gl={{ antialias: true, powerPreference: "high-performance", alpha: true }} 
+                  camera={{ position: [100, 100, 100], fov: 40 }}
+                >
                   <Suspense fallback={<FallbackLoader />}>
                     <ambientLight intensity={0.6} />
                     <directionalLight position={[100, 100, 100]} intensity={1.5} />
@@ -98,7 +102,8 @@ export function SpecialProducts() {
                     <OrbitControls 
                       autoRotate 
                       autoRotateSpeed={1} 
-                      enableZoom={true} 
+                      enableZoom={false} 
+                      enableRotate={false}
                       enablePan={false}
                       minDistance={50}
                       maxDistance={400}
