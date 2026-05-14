@@ -102,7 +102,7 @@ export function Footer() {
                 onClick={() => {
                   const val = (document.getElementById('footer-contact-input') as HTMLInputElement)?.value;
                   const isTelegram = val.startsWith('@') || val.toLowerCase().startsWith('t.me/');
-                  openModal({ 
+                  openModal('order', { 
                     phone: isTelegram ? '' : val,
                     telegram: isTelegram ? val : '',
                     role: selectedOption === "Вы кто?" ? "" : selectedOption 
@@ -122,7 +122,7 @@ export function Footer() {
               </div>
               <p className="text-bee-text-muted max-w-sm mb-4 leading-relaxed text-sm font-light">
                 Промышленная сеть аддитивного производства. 
-                Воплощаем сложные идеи с хирургической точностью.
+                Мы работаем по всей России, собирая заказы на сложные статуи и арт-объекты из любой точки страны.
               </p>
 
               <div className="mb-8 space-y-1">
@@ -149,15 +149,17 @@ export function Footer() {
                 <span className="text-[10px] uppercase tracking-widest text-bee-text-muted">Для прямых запросов и консультаций</span>
               </div>
               
-              <div className="flex flex-wrap gap-4 mb-8">
+              <div className="flex flex-wrap gap-4 mb-4">
                   <div className="px-3 py-1 border border-bee-border rounded-full flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-bee-yellow"></div>
-                      <span className="text-[9px] uppercase tracking-widest text-bee-white/40 font-bold">Резидент инновационного центра</span>
+                      <span className="text-[9px] uppercase tracking-widest text-bee-white/40 font-bold">Доставка: Вся Россия</span>
                   </div>
-                  <div className="px-3 py-1 border border-bee-border rounded-full flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-bee-white/20"></div>
-                      <span className="text-[9px] uppercase tracking-widest text-bee-white/40 font-bold">Print on Demand Technology</span>
-                  </div>
+              </div>
+
+              <div className="mb-8">
+                 <a href="https://t.me/BlackBee_Com" target="_blank" rel="noreferrer" className="text-[10px] uppercase tracking-widest text-bee-yellow hover:text-bee-white transition-colors border-b border-bee-yellow/20 hover:border-bee-white">
+                   Подписаться на наш Telegram-канал
+                 </a>
               </div>
 
               <div className="flex gap-3">

@@ -67,32 +67,6 @@ function calculateVolume(geometry: THREE.BufferGeometry) {
   return Math.abs(volume);
 }
 
-function BoundingBoxLabels({ size, scale }: { size: THREE.Vector3, scale: number }) {
-  const scaledSize = size.clone().multiplyScalar(scale);
-  return (
-    <group>
-      {/* Top Height Label (Z is Up in my rotation fix) */}
-      <Html position={[0, size.y / 2 + 10, 0]} center scale={1 / scale}>
-        <div className="bg-bee-yellow px-2 py-1 border border-bee-black/20 text-bee-black text-[10px] whitespace-nowrap font-mono font-bold uppercase tracking-tighter shadow-2xl select-none skew-heading">
-          {(scaledSize.y / 10).toFixed(2)} см
-        </div>
-      </Html>
-      {/* Width Label */}
-      <Html position={[size.x / 2 + 15, 0, 0]} center scale={1 / scale}>
-        <div className="bg-bee-black/90 text-bee-white text-[9px] px-2 py-1 border border-bee-border/50 whitespace-nowrap font-mono uppercase tracking-tighter shadow-xl select-none">
-          {(scaledSize.x / 10).toFixed(2)} см
-        </div>
-      </Html>
-      {/* Depth Label */}
-      <Html position={[0, 0, size.z / 2 + 15]} center scale={1 / scale}>
-        <div className="bg-bee-black/90 text-bee-white text-[9px] px-2 py-1 border border-bee-border/50 whitespace-nowrap font-mono uppercase tracking-tighter shadow-xl select-none">
-          {(scaledSize.z / 10).toFixed(2)} см
-        </div>
-      </Html>
-    </group>
-  );
-}
-
 function Model({ url, onSpecsUpdate, manualScale, autoRotate = true, isCtrlPressed = false }: { url: string, onSpecsUpdate: (specs: any) => void, manualScale: number, autoRotate?: boolean, isCtrlPressed?: boolean }) {
   const geometry = useLoader(STLLoader, url);
   const groupRef = useRef<THREE.Group>(null);
@@ -234,7 +208,6 @@ function Model({ url, onSpecsUpdate, manualScale, autoRotate = true, isCtrlPress
         <boxGeometry args={[sizeRef.current.x, sizeRef.current.y, sizeRef.current.z]} />
         <meshBasicMaterial transparent opacity={0.02} color="#FFD700" wireframe />
       </mesh>
-      <BoundingBoxLabels size={sizeRef.current} scale={manualScale} />
     </group>
   );
 }
@@ -622,6 +595,9 @@ export function Calculator() {
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.85] italic skew-heading mb-6 md:mb-8">
                 Рассчитать<br /><span className="text-bee-yellow">стоимость</span>
               </h2>
+              <p className="text-xs md:text-sm text-bee-text-muted font-light leading-relaxed max-w-md italic">
+                *Если у вас есть своя 3D модель для загрузки и дальнейшей печати, пожалуйста, предоставьте её нам.
+              </p>
             </div>
 
             <AnimatePresence mode="wait">
@@ -764,7 +740,7 @@ export function Calculator() {
                   <div className="flex flex-col gap-4">
                     <button 
                       disabled={!file}
-                      onClick={() => openModal({
+                      onClick={() => openModal('order', {
                         material: material === 'plastic' ? 'Пластик' : material === 'polymer' ? 'Фотополимер' : 'Композит',
                         construction: isSolid ? 'Монолитная' : 'Полая',
                         thickness: isSolid ? undefined : wallThickness,
@@ -779,7 +755,7 @@ export function Calculator() {
                       Получить финальный оффер
                     </button>
                     <button 
-                      onClick={() => openModal()}
+                      onClick={() => openModal('order')}
                       className="w-full py-5 border border-bee-border text-bee-white text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-bee-white/5 transition-all"
                     >
                       У меня есть только идея / фото

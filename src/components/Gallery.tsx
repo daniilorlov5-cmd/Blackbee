@@ -204,13 +204,13 @@ export function Gallery() {
 
                 <div className="mt-6 md:mt-8 flex flex-col gap-3">
                     <button 
-                      onClick={() => openModal()}
+                      onClick={() => openModal('order')}
                       className="w-full py-3 md:py-4 border border-bee-border text-[9px] md:text-[10px] uppercase font-bold tracking-[0.3em] hover:bg-bee-white/5 transition-all flex items-center justify-center gap-2"
                     >
                     Подробнее <ArrowUpRight className="w-3 h-3" />
                     </button>
                     <button 
-                      onClick={() => openModal()}
+                      onClick={() => openModal('order')}
                       className="w-full py-2 text-[8px] md:text-[9px] uppercase font-bold tracking-[0.2em] text-bee-yellow hover:text-bee-white transition-colors bg-bee-yellow/5 hover:bg-bee-yellow/10"
                     >
                     Хочу такой же проект
@@ -231,7 +231,7 @@ export function Gallery() {
             <motion.button 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => openModal()}
+              onClick={() => openModal('idea')}
               className="w-full md:w-auto px-8 md:px-10 py-4 md:py-5 bg-bee-white text-bee-black text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-bee-yellow transition-colors whitespace-nowrap active:opacity-80 text-center"
             >
               Обсудить нестандартную задачу

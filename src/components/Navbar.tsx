@@ -33,10 +33,10 @@ export function Navbar() {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { name: "Калькулятор", id: "калькулятор" },
-    { name: "Услуги", id: "услуги" },
-    { name: "Кейсы", id: "кейсы" },
-    { name: "О производстве", id: "о-производстве" }
+    { name: "О студии", id: "что-мы-делаем" },
+    { name: "Технологии", id: "услуги" },
+    { name: "Галерея", id: "кейсы" },
+    { name: "Стать партнером", id: "стать-партнером" }
   ];
 
   const handleScroll = (id: string) => {
@@ -55,12 +55,12 @@ export function Navbar() {
               href="https://bbee.pro"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center pr-3 xl:pr-4"
+              className="flex items-center pr-3"
             >
-              <Logo className="h-4 sm:h-5 md:h-6 lg:h-7 xl:h-8 text-bee-logo group-hover:scale-105 transition-transform duration-500 hover:text-bee-white" />
+              <Logo className="h-5 sm:h-6 md:h-7 lg:h-8 xl:h-10 text-bee-logo group-hover:scale-105 transition-transform duration-500 hover:text-bee-white" />
             </a>
             
-            <div className="hidden sm:flex items-center border-l border-bee-white/20 pl-3 xl:pl-4 h-6 transition-colors group-hover:border-bee-yellow/50 shrink-0">
+            <div className="hidden sm:flex items-center border-l border-bee-white/20 pl-3 h-6 transition-colors group-hover:border-bee-yellow/50 shrink-0">
               <span className="text-[9px] xl:text-[10px] uppercase tracking-[0.3em] font-semibold text-bee-white/50 group-hover:text-bee-yellow transition-colors whitespace-nowrap leading-none">
                 О компании
               </span>
@@ -85,7 +85,7 @@ export function Navbar() {
           </div>
 
           {/* Right Actions */}
-          <div className="flex items-center justify-end gap-2 sm:gap-4 shrink-0 lg:w-1/4">
+          <div className="flex items-center justify-end gap-1 sm:gap-4 shrink-0 lg:w-1/4">
             <button 
               onClick={() => setIsLight(!isLight)}
               className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center border border-bee-border hover:bg-bee-yellow hover:text-bee-black hover:border-bee-yellow transition-all rounded-sm group bg-bee-gray shrink-0"
@@ -115,7 +115,7 @@ export function Navbar() {
             {/* Mobile Menu Toggle */}
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden w-8 h-8 flex items-center justify-center text-bee-white hover:text-bee-yellow transition-colors shrink-0 ml-1"
+              className="lg:hidden w-8 h-8 flex items-center justify-center text-bee-white hover:text-bee-yellow transition-colors shrink-0"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

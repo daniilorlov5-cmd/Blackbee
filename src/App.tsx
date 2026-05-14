@@ -5,9 +5,14 @@
 
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
+import { WhatWeDo } from "./components/WhatWeDo";
+import { Partners } from "./components/Partners";
+import { SpecialProducts } from "./components/SpecialProducts";
+import { PhotoToModel } from "./components/PhotoToModel";
 import { Calculator } from "./components/Calculator";
 import { Gallery } from "./components/Gallery";
 import { MaaS } from "./components/MaaS";
+import { PartnershipForm } from "./components/PartnershipForm";
 import { Footer } from "./components/Footer";
 import { TelemetryRails } from "./components/TelemetryRails";
 import { OrderModalProvider } from "./contexts/OrderModalContext";
@@ -21,9 +26,14 @@ export default function App() {
         <Navbar />
         <main>
           <Hero />
+          <WhatWeDo />
+          <Partners />
+          <SpecialProducts />
+          <PhotoToModel />
+          <MaaS />
           <Calculator />
           <Gallery />
-          <MaaS />
+          <PartnershipForm />
         </main>
         <Footer />
         <OrderModal />

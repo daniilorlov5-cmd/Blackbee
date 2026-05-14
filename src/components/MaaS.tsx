@@ -36,19 +36,15 @@ export function MaaS() {
               <div className="w-3 h-3 md:w-4 md:h-4 bg-bee-yellow animate-pulse"></div>
               <span className="font-mono text-sm md:text-lg uppercase tracking-[0.2em] text-bee-yellow">Пром_Инфраструктура_RU+UAE</span>
             </div>
-            <h2 className="text-5xl md:text-6xl lg:text-[90px] font-black uppercase tracking-tighter leading-[0.9] italic skew-heading mb-8 md:mb-10">
-              <div className="text-bee-white drop-shadow-lg inline-block whitespace-nowrap">
-                <span className="relative inline-block pb-2 md:pb-4">
-                  ВАШ
-                  <span className="absolute bottom-0 left-0 w-16 md:w-32 h-1.5 md:h-3 bg-bee-white"></span>
-                </span>
-                {" "}СКЛАД
-              </div>
-              <div className="text-bee-yellow drop-shadow-lg mt-2 md:mt-3 whitespace-nowrap">В ОБЛАКЕ</div>
+            <h2 className="text-5xl md:text-6xl lg:text-[80px] xl:text-[90px] font-black uppercase tracking-tighter leading-[0.9] italic skew-heading mb-8 md:mb-10 text-bee-white drop-shadow-lg">
+              <span className="inline-block">ВАШ СКЛАД</span>
+              <br />
+              <span className="text-bee-yellow inline-block mt-2 md:mt-3">В ОБЛАКЕ</span>
             </h2>
             <p className="text-base md:text-lg text-bee-text-muted max-w-md font-light">
               Забудьте о MOQ и переполненных складах. Black Bee — это «Zero Stock» производство. 
-              Ваш инвентарь теперь в цифровом облаке, а деталь печатается по запросу.
+              Печатаем тысячи единиц продукции — от подставок для книг до корпоративного мерча. 
+              В нашей базе более 6000 готовых к запуску SKU. Основной фокус — скорость, масштабируемость и автоматизация.
             </p>
           </div>
           

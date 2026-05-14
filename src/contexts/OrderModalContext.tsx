@@ -15,11 +15,17 @@ type PredefinedData = {
   notes?: string;
   estimatedPrice?: number;
   estimatedWeight?: number;
+  idea?: string;
+  budget?: string;
+  timeline?: string;
 };
+
+type ModalType = 'order' | 'idea';
 
 interface OrderModalContextType {
   isOpen: boolean;
-  openModal: (data?: PredefinedData) => void;
+  modalType: ModalType;
+  openModal: (type?: ModalType, data?: PredefinedData) => void;
   closeModal: () => void;
   predefinedData: PredefinedData;
 }
@@ -28,9 +34,11 @@ const OrderModalContext = createContext<OrderModalContextType | undefined>(undef
 
 export function OrderModalProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [modalType, setModalType] = useState<ModalType>('order');
   const [predefinedData, setPredefinedData] = useState<PredefinedData>({});
 
-  const openModal = (data?: PredefinedData) => {
+  const openModal = (type: ModalType = 'order', data?: PredefinedData) => {
+    setModalType(type);
     if (data) setPredefinedData(data);
     else setPredefinedData({});
     setIsOpen(true);
@@ -41,7 +49,7 @@ export function OrderModalProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <OrderModalContext.Provider value={{ isOpen, openModal, closeModal, predefinedData }}>
+    <OrderModalContext.Provider value={{ isOpen, modalType, openModal, closeModal, predefinedData }}>
       {children}
     </OrderModalContext.Provider>
   );
