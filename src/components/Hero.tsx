@@ -91,17 +91,19 @@ export function Hero() {
 
  <div className="flex-grow flex items-center relative z-10 px-6 md:px-12 lg:px-20 overflow-hidden">
  {/* Background Video Layer - Clean Rectangular Layout */}
- <div className="absolute top-1/2 -translate-y-1/2 right-[5%] md:right-[10%] lg:right-[15%] w-[350px] h-[600px] md:w-[420px] md:h-[750px] pointer-events-none z-0 hidden lg:flex items-center justify-center">
+ <div className="absolute inset-0 lg:top-1/2 lg:-translate-y-1/2 lg:inset-auto lg:right-[15%] w-full h-full lg:w-[420px] lg:h-[750px] pointer-events-none z-0 flex items-center justify-center opacity-30 lg:opacity-100">
  <motion.div initial={{ opacity: 0, scale: 0.95, x: 50 }}
  animate={{ opacity: 1, scale: 1, x: 0 }}
  transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
  className="w-full h-full relative"
  >
- <div className="w-full h-full rounded-2xl overflow-hidden shadow-none">
+ <div className="w-full h-full lg:rounded-2xl overflow-hidden shadow-none relative">
  <video src="/hero-portrait.mp4" autoPlay loop muted playsInline
  onCanPlay={(e) => (e.currentTarget.playbackRate = 1.5)}
- className="w-full h-full object-cover opacity-100"
+ className="w-full h-full object-cover opacity-100 lg:opacity-100 opacity-60"
  />
+ <div className="absolute inset-0 bg-gradient-to-t from-bee-black via-bee-black/50 to-transparent lg:hidden" />
+ <div className="absolute inset-0 bg-bee-black/40 lg:hidden" />
  </div>
  </motion.div>
  </div>

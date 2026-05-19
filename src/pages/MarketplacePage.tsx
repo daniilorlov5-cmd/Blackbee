@@ -161,38 +161,38 @@ export function MarketplacePage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium mb-24 tracking-tight uppercase leading-none">Как это работает</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 flex-col">
              {/* Row 1 */}
-             <div className="col-span-1 min-h-48 md:aspect-square flex items-center justify-center p-4">
+             <div className="col-span-1 min-h-48 md:aspect-square flex items-center justify-center p-4 order-1 md:order-none">
                <span className="text-8xl md:text-[120px] font-light text-black/10 [.dark_&]:text-bee-yellow/20">1</span>
              </div>
-             <div className="col-span-1 min-h-48 md:aspect-square bg-white [.dark_&]:bg-bee-black border border-black/5 [.dark_&]:border-white/5 p-8 flex flex-col items-center justify-center text-center text-sm lg:text-base font-medium shadow-sm leading-relaxed">
+             <div className="col-span-1 min-h-48 md:aspect-square bg-white [.dark_&]:bg-bee-black border border-black/5 [.dark_&]:border-white/5 p-8 flex flex-col items-center justify-center text-center text-sm lg:text-base font-medium shadow-sm leading-relaxed order-4 md:order-none">
                Мы делаем эскиз<br/>и согласуем
              </div>
-             <div className="col-span-1 min-h-48 md:aspect-square flex items-center justify-center p-4">
+             <div className="col-span-1 min-h-48 md:aspect-square flex items-center justify-center p-4 order-5 md:order-none">
                <span className="text-8xl md:text-[120px] font-light text-black/10 [.dark_&]:text-bee-yellow/20">3</span>
              </div>
-             <div className="col-span-1 min-h-48 md:aspect-square bg-white [.dark_&]:bg-bee-black border border-black/5 [.dark_&]:border-white/5 p-8 flex flex-col items-center justify-center text-center text-sm lg:text-base font-medium shadow-sm leading-relaxed">
+             <div className="col-span-1 min-h-48 md:aspect-square bg-white [.dark_&]:bg-bee-black border border-black/5 [.dark_&]:border-white/5 p-8 flex flex-col items-center justify-center text-center text-sm lg:text-base font-medium shadow-sm leading-relaxed order-8 md:order-none">
                Ваш клиент<br/>заказывает —<br/>мы печатаем<br/>и отправляем
              </div>
-             <div className="col-span-1 min-h-48 md:aspect-square flex items-center justify-center p-4">
+             <div className="col-span-1 min-h-48 md:aspect-square flex items-center justify-center p-4 order-9 md:order-none">
                <span className="text-8xl md:text-[120px] font-light text-black/10 [.dark_&]:text-bee-yellow/20">5</span>
              </div>
 
              {/* Row 2 */}
-             <div className="col-span-1 min-h-48 md:aspect-square bg-white [.dark_&]:bg-bee-black border border-black/5 [.dark_&]:border-white/5 p-8 flex flex-col items-center justify-center text-center text-sm lg:text-base font-medium shadow-sm leading-relaxed">
+             <div className="col-span-1 min-h-48 md:aspect-square bg-white [.dark_&]:bg-bee-black border border-black/5 [.dark_&]:border-white/5 p-8 flex flex-col items-center justify-center text-center text-sm lg:text-base font-medium shadow-sm leading-relaxed order-2 md:order-none">
                Вы присылаете идею<br/>(формат описания/<br/>набросок)
              </div>
-             <div className="col-span-1 min-h-48 md:aspect-square flex items-center justify-center p-4">
+             <div className="col-span-1 min-h-48 md:aspect-square flex items-center justify-center p-4 order-3 md:order-none">
                <span className="text-8xl md:text-[120px] font-light text-black/10 [.dark_&]:text-bee-yellow/20">2</span>
              </div>
-             <div className="col-span-1 min-h-48 md:aspect-square bg-white [.dark_&]:bg-bee-black border border-black/5 [.dark_&]:border-white/5 p-8 flex flex-col items-center justify-center text-center text-sm lg:text-base font-medium shadow-sm leading-relaxed">
+             <div className="col-span-1 min-h-48 md:aspect-square bg-white [.dark_&]:bg-bee-black border border-black/5 [.dark_&]:border-white/5 p-8 flex flex-col items-center justify-center text-center text-sm lg:text-base font-medium shadow-sm leading-relaxed order-6 md:order-none">
                Размещаем товар<br/>на маркетплейсе<br/>(Wildberries/другие)
              </div>
-             <div className="col-span-1 min-h-48 md:aspect-square flex items-center justify-center p-4">
+             <div className="col-span-1 min-h-48 md:aspect-square flex items-center justify-center p-4 order-7 md:order-none">
                <span className="text-8xl md:text-[120px] font-light text-black/10 [.dark_&]:text-bee-yellow/20">4</span>
              </div>
-             <div className="col-span-1 min-h-48 md:aspect-square bg-white [.dark_&]:bg-bee-black border border-black/5 [.dark_&]:border-white/5 p-8 flex flex-col items-center justify-center text-center text-sm lg:text-base font-medium shadow-sm leading-relaxed">
+             <div className="col-span-1 min-h-48 md:aspect-square bg-white [.dark_&]:bg-bee-black border border-black/5 [.dark_&]:border-white/5 p-8 flex flex-col items-center justify-center text-center text-sm lg:text-base font-medium shadow-sm leading-relaxed order-10 md:order-none">
                Вы получаете<br/>прибыль, оплачивая<br/>лишь материал<br/>за каждое изделие
              </div>
           </div>
