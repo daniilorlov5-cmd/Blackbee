@@ -41,6 +41,15 @@ html {
   --logo-color: #000000;
   --selection-bg: #D1D5DB;
   --selection-text: #000000;
+  --pattern-fill: rgba(0, 0, 0, 0.03);
+  --bg-pattern: 
+    url("data:image/svg+xml,%3Csvg width='2400' height='2400' viewBox='0 0 2400 2400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h600v600H0z M1800 1200h600v600H1800z M600 1800h600v600H600z' fill='%23000000' fill-opacity='0.015'/%3E%3Cpath d='M600 0h300v300H600z M900 300h300v300H900z M1200 600h300v300H1200z M1500 900h300v300H1500z' fill='%23000000' fill-opacity='0.02'/%3E%3Cpath d='M200 1200h200v200H200z M400 1600h150v150H400z M1400 1800h400v200H1400z M1600 200h200v600H1600z' fill='%23000000' fill-opacity='0.01'/%3E%3Cpath d='M2200 400h100v100H2200z M2100 500h100v100H2100z M100 2000h150v150H100z M250 2150h150v150H250z' fill='%23000000' fill-opacity='0.03'/%3E%3C/svg%3E");
+}
+
+:root.light body,
+:root.light .bg-bee-black,
+:root.light .bg-bee-gray {
+  background-image: var(--bg-pattern) !important;
 }
 
 :root.light .invert-logo {
@@ -93,10 +102,6 @@ html {
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-medium tracking-tighter uppercase;
+    @apply font-display font-medium tracking-tight uppercase;
   }
-}
-
-.skew-heading {
-  transform: skewX(-4deg);
 }
