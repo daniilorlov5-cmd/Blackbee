@@ -140,7 +140,7 @@ export function PartnershipForm() {
  >
  <span className="leading-tight">{status ==="submitting" ?"ОТПРАВКА..." :"ОТПРАВИТЬ"}</span> <Send className="w-3.5 h-3.5 md:w-4 md:h-4 ml-2 flex-shrink-0 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
  </button>
- <a href="https://t.me/BlackBee_Com?text=Здравствуйте,%20хочу%20обсудить%20партнерство/трафик."
+ <a href={`https://t.me/blackbeee_group?text=${encodeURIComponent("Здравствуйте, у меня есть запрос: ")}`}
  target="_blank" rel="noreferrer"
  className="w-full h-16 md:h-20 flex items-center justify-between px-6 md:px-8 bg-transparent border border-bee-white text-bee-white font-black uppercase tracking-[0.2em] text-[9px] md:text-[10px] hover:bg-bee-white hover:text-bee-black transition-all duration-300 group"
  >

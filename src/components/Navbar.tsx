@@ -4,16 +4,27 @@
  */
 
 import { motion, AnimatePresence } from"motion/react";
-import { Zap, Hexagon, Users, Terminal, Sun, Moon, Menu, X, ArrowLeft } from"lucide-react";
-import { Logo } from"./Logo";
-import { useState, useEffect } from"react";
+import { Zap, Hexagon, Users, Terminal, Sun, Moon, Menu, X, ArrowLeft, Send, Check } from "lucide-react";
+import { Logo } from "./Logo";
+import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export function Navbar() {
   const [isLight, setIsLight] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const handleCopy = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard.writeText("+7 937 710 7767").then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }).catch((err) => {
+      console.error("Failed to copy phone number: ", err);
+    });
+  };
 
   useEffect(() => {
     if (isLight) {
@@ -90,22 +101,53 @@ export function Navbar() {
  </div>
 
   {/* Right Actions */}
-  <div className="flex items-center justify-end gap-1 sm:gap-4 lg:flex-1">
-  <button onClick={() => setIsLight(!isLight)}
- className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center border border-bee-border hover:bg-bee-yellow hover:text-bee-black hover:border-bee-yellow transition-all rounded-sm group bg-bee-gray shrink-0"
- title="Сменить тему"
- >
- {isLight ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
- </button>
- <a href={`https://t.me/BlackBee_Com?text=${encodeURIComponent(
- `Юрий, здравствуйте! \n\nЯ пишу с сайта BlackBee по поводу 3D печати. Мои детали:\n- Моя роль: \n- Материал: \n- Конструкция: \n- Габариты: \n- Толщина стенки: \n- Ссылка на файл: \n- Мой запрос: `
- )}`}
- target="_blank"
- rel="noreferrer"
- className="hidden sm:inline-block px-4 py-2 text-[10px] md:px-6 md:py-2.5 md:text-xs border border-bee-border text-bee-white font-bold uppercase tracking-[0.1em] md:tracking-[0.2em] hover:bg-bee-yellow hover:text-bee-black hover:border-bee-yellow transition-all whitespace-nowrap shrink-0"
- >
- Связаться
- </a>
+  <div className="flex items-center justify-end gap-2 sm:gap-4 lg:flex-1">
+    <div className="hidden lg:flex items-center gap-4 xl:gap-5 mr-1">
+      <div className="relative">
+        <button 
+          onClick={handleCopy}
+          className="text-sm lg:text-base xl:text-lg font-black text-bee-white hover:text-bee-yellow transition-colors whitespace-nowrap tracking-wide cursor-pointer focus:outline-none"
+          title="Нажмите, чтобы скопировать номер"
+        >
+          +7 937 710 7767
+        </button>
+        <AnimatePresence>
+          {copied && (
+            <motion.div 
+              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+              className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5 bg-bee-yellow text-bee-black text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-sm shadow-xl whitespace-nowrap pointer-events-none z-50 flex items-center gap-1.5 border border-bee-yellow"
+            >
+              <Check className="w-3.5 h-3.5" /> Скопировано
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+      <a href={`https://t.me/blackbeee_group?text=${encodeURIComponent("Здравствуйте, у меня есть запрос: ")}`}
+        target="_blank"
+        rel="noreferrer"
+        className="w-10 h-10 lg:w-11 lg:h-11 xl:w-12 xl:h-12 flex items-center justify-center border border-bee-border text-bee-yellow hover:bg-bee-yellow hover:text-bee-black hover:border-bee-yellow transition-all rounded-sm bg-bee-gray shrink-0"
+        title="Telegram"
+      >
+        <Send className="w-5 h-5 lg:w-[22px] lg:h-[22px]" />
+      </a>
+    </div>
+    <button onClick={() => setIsLight(!isLight)}
+      className="w-10 h-10 lg:w-11 lg:h-11 xl:w-12 xl:h-12 flex items-center justify-center border border-bee-border hover:bg-bee-yellow hover:text-bee-black hover:border-bee-yellow transition-all rounded-sm group bg-bee-gray shrink-0"
+      title="Сменить тему"
+    >
+      {isLight ? <Moon className="w-5 h-5 lg:w-[22px] lg:h-[22px]" /> : <Sun className="w-5 h-5 lg:w-[22px] lg:h-[22px]" />}
+    </button>
+    <a href={`https://t.me/blackbeee_group?text=${encodeURIComponent(
+      `Здравствуйте, у меня есть запрос: `
+    )}`}
+      target="_blank"
+      rel="noreferrer"
+      className="hidden sm:inline-block px-5 py-2.5 text-xs lg:px-6 lg:py-3 lg:text-sm border border-bee-border text-bee-white font-extrabold uppercase tracking-[0.1em] md:tracking-[0.2em] hover:bg-bee-yellow hover:text-bee-black hover:border-bee-yellow transition-all whitespace-nowrap shrink-0"
+    >
+      Связаться
+    </a>
  {location.pathname !== '/' && (
    <>
      <Link 
@@ -124,7 +166,7 @@ export function Navbar() {
      </Link>
    </>
  )}
- <a href={`https://t.me/BlackBee_Com`}
+ <a href={`https://t.me/blackbeee_group`}
  className="sm:hidden w-8 h-8 flex items-center justify-center border border-bee-border bg-bee-gray hover:bg-bee-yellow hover:text-bee-black transition-all shrink-0"
  >
  <Zap className="w-4 h-4" />
@@ -163,7 +205,38 @@ export function Navbar() {
  </svg>
  </a>
  ))}
- <div className="mt-8">
+ <div className="mt-8 pt-8 border-t border-bee-white/10">
+ <p className="text-bee-white/50 text-[10px] uppercase tracking-[0.2em] mb-6 font-bold">Связаться напрямую</p>
+ <div className="flex flex-col gap-6 mb-8">
+ <div className="relative w-fit">
+   <button 
+     onClick={handleCopy}
+     className="text-xl font-black text-bee-white hover:text-bee-yellow transition-colors text-left focus:outline-none cursor-pointer"
+     title="Нажмите, чтобы скопировать номер"
+   >
+     +7 937 710 7767
+   </button>
+   <AnimatePresence>
+     {copied && (
+       <motion.div 
+         initial={{ opacity: 0, scale: 0.95 }}
+         animate={{ opacity: 1, scale: 1 }}
+         exit={{ opacity: 0, scale: 0.95 }}
+         className="absolute left-0 mt-1.5 px-3 py-1 bg-bee-yellow text-bee-black text-[10px] font-bold uppercase tracking-wider rounded-sm shadow-xl whitespace-nowrap pointer-events-none z-50 flex items-center gap-1.5 border border-bee-yellow"
+       >
+         <Check className="w-3.5 h-3.5" /> Скопировано
+       </motion.div>
+     )}
+   </AnimatePresence>
+ </div>
+ <a href={`https://t.me/blackbeee_group?text=${encodeURIComponent("Здравствуйте, у меня есть запрос: ")}`}
+ target="_blank"
+ rel="noreferrer"
+ className="flex items-center gap-3 text-bee-yellow hover:text-bee-white transition-colors uppercase tracking-widest text-xs font-bold"
+ >
+ <Send className="w-4 h-4" /> Написать в Telegram
+ </a>
+ </div>
  <p className="text-bee-white/50 text-xs uppercase tracking-widest mb-4">О компании</p>
  <a href="https://bbee.pro"
  target="_blank"

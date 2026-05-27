@@ -452,7 +452,7 @@ export function MarketplacePage() {
                 Отправить идею
               </button>
               <a 
-                href="https://t.me/BlackBee_Com" 
+                href="https://t.me/blackbeee_group" 
                 target="_blank" 
                 rel="noreferrer"
                 className="w-14 h-14 rounded-full border border-black/10 [.dark_&]:border-white/10 flex items-center justify-center hover:bg-[#0088cc] hover:text-white transition-all group shadow-sm bg-white [.dark_&]:bg-white/5"

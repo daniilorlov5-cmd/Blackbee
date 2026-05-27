@@ -24,13 +24,13 @@ export function Footer() {
  ];
 
  const handlePhoneCopy = () => {
- navigator.clipboard.writeText("+79020909222");
+ navigator.clipboard.writeText("+79377107767");
  setIsPhoneCopied(true);
  setTimeout(() => setIsPhoneCopied(false), 2000);
  };
 
  const handleIconCopy = () => {
- navigator.clipboard.writeText("+79020909222");
+ navigator.clipboard.writeText("+79377107767");
  setIsIconCopied(true);
  setTimeout(() => setIsIconCopied(false), 2000);
  };
@@ -120,7 +120,7 @@ export function Footer() {
  className="group flex items-center gap-3 relative"
  >
  <span className="block text-lg font-black tracking-tight group-hover:text-bee-yellow transition-colors">
- +7 902 0909222
+ +7 937 710 7767
  </span>
  <AnimatePresence>
  {isPhoneCopied && (
@@ -144,14 +144,14 @@ export function Footer() {
  </div>
 
  <div className="mb-8">
- <a href="https://t.me/BlackBee_Com" target="_blank" rel="noreferrer" className="text-[10px] uppercase tracking-widest text-bee-yellow hover:text-bee-white transition-colors border-b border-bee-yellow/20 hover:border-bee-white">
+ <a href="https://t.me/blackbeee_group" target="_blank" rel="noreferrer" className="text-[10px] uppercase tracking-widest text-bee-yellow hover:text-bee-white transition-colors border-b border-bee-yellow/20 hover:border-bee-white">
  Подписаться на наш Telegram-канал
  </a>
  </div>
 
  <div className="flex gap-3">
- <a href={`https://t.me/BlackBee_Com?text=${encodeURIComponent(
- `Юрий, здравствуйте! \n\nЯ пишу с сайта BlackBee по поводу 3D печати. Мои детали:\n- Моя роль: \n- Материал: \n- Конструкция: \n- Габариты: \n- Толщина стенки: \n- Ссылка на файл: \n- Мой запрос: `
+ <a href={`https://t.me/blackbeee_group?text=${encodeURIComponent(
+ `Здравствуйте, у меня есть запрос: `
  )}`} target="_blank"
  rel="noreferrer"
  className="w-10 h-10 border border-bee-border flex items-center justify-center hover:bg-bee-yellow hover:text-bee-black hover:border-bee-yellow transition-all"

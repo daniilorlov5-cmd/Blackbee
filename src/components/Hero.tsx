@@ -91,7 +91,7 @@ export function Hero() {
 
  <div className="flex-grow flex items-center relative z-10 px-6 md:px-12 lg:px-20 overflow-hidden">
  {/* Background Video Layer - Clean Rectangular Layout */}
- <div className="absolute inset-0 lg:top-1/2 lg:-translate-y-1/2 lg:inset-auto lg:right-[15%] w-full h-full lg:w-[420px] lg:h-[750px] pointer-events-none z-0 flex items-center justify-center opacity-30 lg:opacity-100">
+ <div className="absolute inset-0 lg:top-1/2 lg:-translate-y-1/2 lg:inset-auto lg:right-[5%] xl:right-[10%] 2xl:right-[15%] w-full h-full lg:w-[380px] xl:w-[450px] lg:h-[700px] xl:h-[750px] pointer-events-none z-0 flex items-center justify-center opacity-30 lg:opacity-100">
  <motion.div initial={{ opacity: 0, scale: 0.95, x: 50 }}
  animate={{ opacity: 1, scale: 1, x: 0 }}
  transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -114,16 +114,16 @@ export function Hero() {
  initial={{ opacity: 0, x: -30 }}
  animate={{ opacity: 1, x: 0 }}
  transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
- className="relative z-30 py-12 md:py-0 pointer-events-auto"
+ className="relative z-30 py-12 md:py-0 pointer-events-auto w-full lg:w-[55%] xl:w-[60%] lg:pr-8"
  >
  <div className="mb-6">
- <span className="text-bee-yellow text-xs md:text-sm font-bold uppercase tracking-[0.2em] md:tracking-[0.4em] bg-bee-yellow/5 px-4 py-2 border border-bee-yellow/20 inline-block mb-4">Промышленная 3D-печать: от одного прототипа до крупных партий</span>
+ <span className="text-bee-yellow text-[10px] md:text-xs xl:text-sm font-bold uppercase tracking-[0.1em] md:tracking-[0.2em] xl:tracking-[0.3em] bg-bee-yellow/5 px-3 md:px-4 py-1.5 md:py-2 border border-bee-yellow/20 inline-block mb-4 max-w-full">Промышленная 3D-печать: от одного прототипа до крупных партий</span>
  </div>
- <h1 className="text-[9vw] sm:text-[8vw] md:text-5xl lg:text-5xl leading-tight font-black tracking-tight uppercase mb-6 md:mb-10 drop-shadow-2xl max-w-4xl">
+ <h1 className="text-[9vw] sm:text-[8vw] md:text-5xl lg:text-4xl xl:text-[3.25rem] 2xl:text-6xl leading-tight font-black tracking-tight uppercase mb-6 md:mb-10 drop-shadow-2xl">
  Создадим <span className="text-bee-yellow">готовый продукт</span><br className="hidden md:block" />
  <span className="md:hidden"> </span>из вашей идеи за 48 часов
  </h1>
- <p className="max-w-md text-base md:text-lg lg:text-xl text-bee-white/60 font-medium leading-relaxed mb-6 md:mb-8">
+ <p className="max-w-md lg:max-w-lg xl:max-w-xl text-base md:text-lg lg:text-xl text-bee-white/60 font-medium leading-relaxed mb-6 md:mb-8">
  Превратим вашу самую смелую идею в физический объект с точностью до микрона. Промышленная студия 3D-печати Black Bee.
  </p>
 
@@ -145,7 +145,7 @@ export function Hero() {
  </div>
 
  {/* Information Blocks */}
- <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 border-t border-bee-border pt-8 md:pt-10">
+ <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 xl:gap-8 border-t border-bee-border pt-8 md:pt-10 w-full mb-12 md:mb-0">
  {[
  {
  title: "Без склада",

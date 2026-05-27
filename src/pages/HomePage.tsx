@@ -27,10 +27,10 @@ export function HomePage() {
   return (
     <>
       <Hero />
-      <WhatWeDo />
-      <Calculator />
-      <PhotoToModel />
       <SpecialProducts />
+      <Calculator />
+      <WhatWeDo />
+      <PhotoToModel />
       <Partners />
       <MaaS />
       <Gallery />

@@ -406,11 +406,11 @@ export function OrderModal() {
  onClick={() => {
  let message = '';
  if (modalType === 'idea') {
- message = `Юрий, здравствуйте! \n\nЯ хочу обсудить идею с сайта BlackBee.\n\n- Имя/Компания: ${formData.name}\n- Идея: ${formData.idea}\n- Бюджет: ${formData.budget}\n- Сроки: ${formData.timeline}\n- Ссылка на файл: ${formData.fileLink}\n- Примечания: ${formData.notes}`;
+ message = `Здравствуйте, у меня есть запрос: \n\nЯ хочу обсудить идею с сайта BlackBee.\n\n- Имя/Компания: ${formData.name}\n- Идея: ${formData.idea}\n- Бюджет: ${formData.budget}\n- Сроки: ${formData.timeline}\n- Ссылка на файл: ${formData.fileLink}\n- Примечания: ${formData.notes}`;
  } else {
- message = `Юрий, здравствуйте! \n\nЯ пишу с сайта BlackBee по поводу 3D печати. Мои детали:\n- Моя роль: ${formData.role || ''}\n- Материал: ${formData.material || ''}\n- Конструкция: ${formData.construction || ''}\n- Габариты: ${formData.sizeX || ''} x ${formData.sizeY || ''} x ${formData.sizeZ || ''} мм\n- Толщина стенки: ${formData.thickness || ''} мм\n- Ссылка на файл: ${formData.fileLink || ''}\n- Мой запрос: ${formData.notes || ''}`;
+ message = `Здравствуйте, у меня есть запрос: \n\nЯ пишу с сайта BlackBee по поводу 3D печати. Мои детали:\n- Моя роль: ${formData.role || ''}\n- Материал: ${formData.material || ''}\n- Конструкция: ${formData.construction || ''}\n- Габариты: ${formData.sizeX || ''} x ${formData.sizeY || ''} x ${formData.sizeZ || ''} мм\n- Толщина стенки: ${formData.thickness || ''} мм\n- Ссылка на файл: ${formData.fileLink || ''}\n- Мой запрос: ${formData.notes || ''}`;
  }
- window.open(`https://t.me/BlackBee_Com?text=${encodeURIComponent(message)}`, '_blank');
+ window.open(`https://t.me/blackbeee_group?text=${encodeURIComponent(message)}`, '_blank');
  }}
  className="w-full bg-transparent border border-bee-border text-bee-white px-8 py-5 text-[10px] font-bold uppercase tracking-widest hover:border-bee-yellow hover:text-bee-yellow active:scale-[0.98] transition-all flex items-center justify-center gap-3"
  >
