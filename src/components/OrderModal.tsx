@@ -121,6 +121,11 @@ export function OrderModal() {
  body: JSON.stringify(payload),
  });
  // Since mode is 'no-cors', we can't see the response, but if fetch didn't throw, we assume success
+ try {
+ if (typeof window !== 'undefined' && (window as any).ym) {
+ (window as any).ym(109348825, 'reachGoal', 'all_goals');
+ }
+ } catch (e) {}
  setStatus('success');
  setTimeout(() => {
  closeModal();
@@ -185,21 +190,6 @@ export function OrderModal() {
  </div>
 
  <form onSubmit={handleSubmit} className="space-y-6">
- {modalType === 'idea' && (
- <div className="space-y-6">
- <div className="space-y-2">
- <label className="text-[10px] uppercase tracking-widest text-bee-text-muted font-bold">Имя / Компания</label>
- <input type="text" name="name"
- required
- value={formData.name}
- onChange={handleChange}
- placeholder="Как нам к вам обращаться?"
- className="w-full bg-transparent border-b border-bee-border px-0 py-4 text-sm font-light text-bee-white outline-none focus:border-bee-yellow transition-colors placeholder:text-bee-text-muted/50"
- />
- </div>
- </div>
- )}
-
  <div className="grid md:grid-cols-2 gap-6">
  <div className="space-y-2">
  <label className="text-[10px] uppercase tracking-widest text-bee-text-muted font-bold">Телефон / WhatsApp</label>
@@ -220,6 +210,21 @@ export function OrderModal() {
  />
  </div>
  </div>
+
+ {modalType === 'idea' && (
+ <div className="space-y-6">
+ <div className="space-y-2">
+ <label className="text-[10px] uppercase tracking-widest text-bee-text-muted font-bold">Имя / Компания</label>
+ <input type="text" name="name"
+ required
+ value={formData.name}
+ onChange={handleChange}
+ placeholder="Как нам к вам обращаться?"
+ className="w-full bg-transparent border-b border-bee-border px-0 py-4 text-sm font-light text-bee-white outline-none focus:border-bee-yellow transition-colors placeholder:text-bee-text-muted/50"
+ />
+ </div>
+ </div>
+ )}
 
  {modalType === 'idea' ? (
  <div className="space-y-6">

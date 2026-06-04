@@ -322,8 +322,8 @@ function ModelPreview({ url, onSpecsUpdate, manualScale = 1, isFullScreen = fals
 
 export function Calculator() {
  const { openModal } = useOrderModal();
- const [file, setFile] = useState<File | {name: string} | null>({ name:"Unicorn.stl" });
- const [fileUrl, setFileUrl] = useState<string | null>("/Unicorn.stl");
+ const [file, setFile] = useState<File | {name: string} | null>(null);
+ const [fileUrl, setFileUrl] = useState<string | null>(null);
  const [material, setMaterial] = useState("plastic");
  const [step, setStep] = useState(1); // 1: Upload, 2: Contacts, 3: Success
  const [specs, setSpecs] = useState<any>(null);

@@ -46,6 +46,11 @@ export function PartnershipForm() {
  body: JSON.stringify(payload),
  });
 
+ try {
+ if (typeof window !== 'undefined' && (window as any).ym) {
+ (window as any).ym(109348825, 'reachGoal', 'all_goals');
+ }
+ } catch (e) {}
  setStatus("success");
  } catch (error) {
  console.error(error);
@@ -100,14 +105,6 @@ export function PartnershipForm() {
  </div>
  ) : (
  <form onSubmit={handleSubmit} className="space-y-6 text-left">
- <div>
- <label htmlFor="name" className="block font-mono text-[10px] uppercase tracking-widest text-bee-white/40 mb-2">Имя / Компания</label>
- <input type="text" id="name" name="name"
- required
- className="w-full bg-transparent border-b border-bee-border py-3 text-bee-white focus:outline-none focus:border-bee-yellow transition-colors font-sans"
- placeholder="Иван Иванов"
- />
- </div>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
  <div>
  <label htmlFor="phone" className="block font-mono text-[10px] uppercase tracking-widest text-bee-white/40 mb-2">Телефон</label>
@@ -124,6 +121,14 @@ export function PartnershipForm() {
  placeholder="@username"
  />
  </div>
+ </div>
+ <div>
+ <label htmlFor="name" className="block font-mono text-[10px] uppercase tracking-widest text-bee-white/40 mb-2">Имя / Компания</label>
+ <input type="text" id="name" name="name"
+ required
+ className="w-full bg-transparent border-b border-bee-border py-3 text-bee-white focus:outline-none focus:border-bee-yellow transition-colors font-sans"
+ placeholder="Иван Иванов"
+ />
  </div>
 
  <div>
