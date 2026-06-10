@@ -277,7 +277,7 @@ export function OrderModal() {
  <input type="text" name="material"
  value={formData.material}
  onChange={handleChange}
- placeholder="Например: Пластик, Композит"
+ placeholder="Например: ABS, PLA, PETg"
  className="w-full bg-transparent border-b border-bee-border px-0 py-4 text-sm font-light text-bee-white outline-none focus:border-bee-yellow transition-colors placeholder:text-bee-text-muted/50"
  />
  </div>

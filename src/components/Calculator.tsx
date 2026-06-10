@@ -324,7 +324,7 @@ export function Calculator() {
  const { openModal } = useOrderModal();
  const [file, setFile] = useState<File | {name: string} | null>(null);
  const [fileUrl, setFileUrl] = useState<string | null>(null);
- const [material, setMaterial] = useState("plastic");
+ const [material, setMaterial] = useState("abs");
  const [step, setStep] = useState(1); // 1: Upload, 2: Contacts, 3: Success
  const [specs, setSpecs] = useState<any>(null);
  const [manualScale, setManualScale] = useState(1);
@@ -384,7 +384,7 @@ export function Calculator() {
  if (!specs) return 0;
  const V_total = specs.currentVolume; // mm3
  const S_surface = specs.currentSurfaceArea; // mm2
- const density = 1.25; // standard density from request
+ const density = material === 'abs' ? 1.04 : material === 'pla' ? 1.24 : 1.27; // standard density
  let weightInGrams = 0;
  if (isSolid) {
  // Monolith (100% solid)
@@ -399,7 +399,7 @@ export function Calculator() {
 
  const calculatePrice = () => {
  if (!specs) return 0;
- const rate = material === 'plastic' ? 1 : material === 'polymer' ? 18 : 45;
+ const rate = material === 'abs' ? 1.9 : material === 'pla' ? 2.2 : 1.8;
  const weight = calculateRealWeight(specs);
  return Math.max(120, Math.round(weight * rate));
  };
@@ -558,17 +558,17 @@ export function Calculator() {
  <div className="space-y-6">
  <label className="block text-[10px] uppercase tracking-widest font-bold text-bee-white/30">Выберите материал</label>
  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
- {["plastic","polymer","composite"].map((m) => (
+ {["abs","pla","petg"].map((m) => (
  <button
  key={m}
  onClick={() => setMaterial(m)}
  className={`p-6 border transition-all text-left group ${material === m ? 'border-bee-yellow bg-bee-yellow/5' : 'border-bee-border hover:border-bee-white/20 bg-bee-gray'}`}
  >
  <span className={`block text-[10px] uppercase font-bold tracking-widest mb-2 ${material === m ? 'text-bee-yellow' : 'text-bee-white/40'}`}>
- {m === 'plastic' ? 'Пластик' : m === 'polymer' ? 'Фотополимер' : 'Композит'}
+ {m === 'abs' ? 'ABS' : m === 'pla' ? 'PLA' : 'PETg'}
  </span>
  <span className="text-sm font-light text-bee-white/70 block">
- {m === 'plastic' ? 'От 1 ₽ / гр' : m === 'polymer' ? 'От 18 ₽ / гр' : 'От 45 ₽ / гр'}
+ {m === 'abs' ? 'От 1.9 ₽ / гр' : m === 'pla' ? 'От 2.2 ₽ / гр' : 'От 1.8 ₽ / гр'}
  </span>
  </button>
  ))}
@@ -674,7 +674,7 @@ export function Calculator() {
  <div className="flex flex-col gap-4">
  <button disabled={!file}
  onClick={() => openModal('order', {
- material: material === 'plastic' ? 'Пластик' : material === 'polymer' ? 'Фотополимер' : 'Композит',
+ material: material === 'abs' ? 'ABS' : material === 'pla' ? 'PLA' : 'PETg',
  construction: isSolid ? 'Монолитная' : 'Полая',
  thickness: isSolid ? undefined : wallThickness,
  sizeX: specs ? Math.round(specs.dimensions.x) : undefined,
