@@ -4,7 +4,8 @@
  */
 
 import { useState } from"react";
-import { Send, CheckCircle2 } from"lucide-react";
+import { Send, CheckCircle2, ArrowRight } from"lucide-react";
+import { Link } from "react-router-dom";
 
 export function PartnershipForm() {
  const [status, setStatus] = useState<"idle" |"submitting" |"success">("idle");
@@ -82,13 +83,22 @@ export function PartnershipForm() {
  </p>
  </div>
 
- <div className="flex flex-wrap gap-3">
+ <div className="flex flex-wrap gap-3 mb-10">
  {['Дизайнер', 'Архитектор', 'Проектировщик', 'Блогер'].map((tag) => (
  <div key={tag} className="border border-bee-border bg-bee-black px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-bee-white/50">
  {tag}
  </div>
  ))}
  </div>
+
+ <Link 
+ to="/saas" 
+ className="inline-flex items-center justify-between w-full md:w-auto px-8 py-5 md:py-6 bg-bee-yellow text-bee-black font-black uppercase tracking-[0.2em] text-xs md:text-sm hover:scale-[1.02] transition-transform shadow-[0_0_30px_rgba(255,215,0,0.15)] group relative overflow-hidden"
+ >
+ <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
+ <span className="relative z-10 w-full text-center md:text-left">SaaS-платформа</span>
+ <ArrowRight className="w-5 h-5 ml-4 flex-shrink-0 group-hover:translate-x-1 transition-transform relative z-10 hidden md:block" />
+ </Link>
  </div>
 
  <div className="bg-bee-black border border-bee-border p-6 md:p-10 lg:p-12 relative overflow-hidden flex flex-col justify-center">
