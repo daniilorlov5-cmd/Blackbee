@@ -22,7 +22,7 @@ export function SaaSPage() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    const WEBHOOK_URL = import.meta.env.VITE_GOOGLE_SHEET_URL || "https://script.google.com/macros/s/AKfycbz5YvGoezeGCB19MScK9dRlC3C97poBkP-2Rd7Y4vwc2V1s2S8YR-vMwK8o9OpNz7k0cQ/exec";
+    const WEBHOOK_URL = import.meta.env.VITE_GOOGLE_SHEET_URL || "https://script.google.com/macros/s/AKfycbwLpKtmd4lzMMUB9DYXk8b8oCi7Rchr0G-YVaeQgEQ7Ye4Gn3Ob_xl5afqO-g6nmoCZ9A/exec";
     
     if (!WEBHOOK_URL) {
       console.warn("VITE_GOOGLE_SHEET_URL is missing. Simulating request...");
@@ -35,23 +35,13 @@ export function SaaSPage() {
     }
 
     try {
-      const data = new FormData();
-      data.append("Кто вы?", formData.role);
-      data.append("Ссылка на блог/магазин/сообщество", formData.link);
-      data.append("Примерная аудитория", formData.audience);
-      data.append("Ниша", formData.niche);
-      data.append("Контакт", formData.contact);
-      
-      data.append("role", formData.role);
-      data.append("link", formData.link);
-      data.append("audience", formData.audience);
-      data.append("niche", formData.niche);
-      data.append("contact", formData.contact);
-
       await fetch(WEBHOOK_URL, {
         method: "POST",
         mode: "no-cors",
-        body: data,
+        headers: {
+          "Content-Type": "text/plain",
+        },
+        body: JSON.stringify(formData),
       });
       
       // With mode: 'no-cors', response is opaque. Assume success if fetch didn't throw.
@@ -190,8 +180,8 @@ export function SaaSPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start w-full relative">
-            <div className="lg:col-start-1 lg:col-end-6 xl:col-end-5 2xl:col-end-4 space-y-8 md:space-y-10 relative z-30 pointer-events-none">
-              <div className="pointer-events-auto bg-bee-gray/50 border border-bee-border p-6 md:p-8 rounded-sm w-full max-w-[400px] lg:max-w-full">
+            <div className="lg:col-span-5 xl:col-span-4 space-y-8 md:space-y-10 relative z-30 pointer-events-none w-full">
+              <div className="pointer-events-auto bg-bee-gray/50 border border-bee-border p-6 md:p-8 rounded-sm w-full">
                 <p className="text-base md:text-lg text-bee-text-muted leading-relaxed mb-6 lg:max-w-md">
                   Вы приносите идею или аудиторию — мы помогаем сделать товар, проверить спрос, произвести его и доставить покупателям.
                 </p>
@@ -206,7 +196,7 @@ export function SaaSPage() {
                 </ul>
               </div>
 
-              <div className="flex flex-col items-stretch gap-4 pointer-events-auto w-full max-w-[400px] lg:max-w-full">
+              <div className="flex flex-col flex-wrap sm:flex-row lg:flex-col items-stretch gap-4 pointer-events-auto w-full">
                 <button 
                   onClick={() => document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' })} 
                   className="px-8 py-5 md:py-6 bg-bee-yellow text-bee-black font-black uppercase tracking-[0.2em] text-xs md:text-sm hover:scale-[1.02] transition-transform shadow-[0_0_20px_rgba(255,215,0,0.15)] flex justify-center items-center group relative overflow-hidden flex-shrink-0"
@@ -220,7 +210,7 @@ export function SaaSPage() {
                 </button>
               </div>
 
-              <div className="flex flex-wrap gap-2 md:gap-3 pointer-events-auto w-full max-w-[400px] lg:max-w-full">
+              <div className="flex flex-wrap gap-2 md:gap-3 pointer-events-auto w-full">
                 {['Без производства', 'Без склада', 'Аналитика продаж'].map((tag) => (
                   <div key={tag} className="border border-bee-border bg-bee-black px-3 py-1.5 md:px-4 md:py-2 font-mono text-[10px] md:text-xs uppercase tracking-widest text-bee-white/50">
                     {tag}
@@ -229,7 +219,7 @@ export function SaaSPage() {
               </div>
             </div>
 
-            <div className="lg:col-start-6 xl:col-start-6 lg:col-end-13 relative z-10 mt-12 lg:mt-0 pointer-events-auto flex flex-col items-center xl:items-end justify-start">
+            <div className="lg:col-span-7 xl:col-span-8 relative z-10 mt-12 lg:mt-0 pointer-events-auto flex flex-col items-center xl:items-end justify-start">
               <div className="relative w-full xl:w-[105%] max-w-[1100px] xl:-right-[2%] pt-0">
                 {/* Main Screenshot */}
                 <img src="/121.png" alt="Platform Dashboard" className="w-full h-auto object-contain shadow-2xl rounded-lg border border-bee-white/10" />
