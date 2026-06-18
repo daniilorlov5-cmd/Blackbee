@@ -5,7 +5,65 @@ import { Logo } from "../components/Logo";
 
 export function SaaSPage() {
   const [activePlatformTab, setActivePlatformTab] = useState("Мои товары");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // Form State
+  const [formData, setFormData] = useState({
+    role: '',
+    link: '',
+    audience: '',
+    niche: '',
+    contact: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    const WEBHOOK_URL = import.meta.env.VITE_GOOGLE_SHEET_URL || "https://script.google.com/macros/s/AKfycbz5YvGoezeGCB19MScK9dRlC3C97poBkP-2Rd7Y4vwc2V1s2S8YR-vMwK8o9OpNz7k0cQ/exec";
+    
+    if (!WEBHOOK_URL) {
+      console.warn("VITE_GOOGLE_SHEET_URL is missing. Simulating request...");
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setSubmitStatus('success');
+        setFormData({ role: '', link: '', audience: '', niche: '', contact: '' });
+      }, 1000);
+      return;
+    }
+
+    try {
+      const data = new FormData();
+      data.append("Кто вы?", formData.role);
+      data.append("Ссылка на блог/магазин/сообщество", formData.link);
+      data.append("Примерная аудитория", formData.audience);
+      data.append("Ниша", formData.niche);
+      data.append("Контакт", formData.contact);
+      
+      data.append("role", formData.role);
+      data.append("link", formData.link);
+      data.append("audience", formData.audience);
+      data.append("niche", formData.niche);
+      data.append("contact", formData.contact);
+
+      await fetch(WEBHOOK_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: data,
+      });
+      
+      // With mode: 'no-cors', response is opaque. Assume success if fetch didn't throw.
+      setSubmitStatus('success');
+      setFormData({ role: '', link: '', audience: '', niche: '', contact: '' });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const platformTabs = [
     { 
@@ -126,29 +184,29 @@ export function SaaSPage() {
               </span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-[3.5rem] xl:text-[4rem] 2xl:text-[4.8rem] font-black uppercase leading-[1.05] tracking-tight pointer-events-auto w-full">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3rem] xl:text-[3.4rem] 2xl:text-[4rem] font-black uppercase leading-[1.05] tracking-tight pointer-events-auto w-full">
               Запустите свой товар без склада,<br className="hidden lg:block"/> закупок и производства
             </h1>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start w-full relative">
             <div className="lg:col-start-1 lg:col-end-6 xl:col-end-5 2xl:col-end-4 space-y-8 md:space-y-10 relative z-30 pointer-events-none">
-              <div className="pointer-events-auto bg-bee-gray/50 border border-bee-border p-6 md:p-8 rounded-sm lg:w-[90%] xl:w-[85%] 2xl:w-[100%]">
+              <div className="pointer-events-auto bg-bee-gray/50 border border-bee-border p-6 md:p-8 rounded-sm w-full max-w-[400px] lg:max-w-full">
                 <p className="text-base md:text-lg text-bee-text-muted leading-relaxed mb-6 lg:max-w-md">
                   Вы приносите идею или аудиторию — мы помогаем сделать товар, проверить спрос, произвести его и доставить покупателям.
                 </p>
 
                 <ul className="text-bee-white/90 space-y-3 text-sm md:text-base font-medium">
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0"/> Вы продаете товар своей аудитории</li>
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0"/> BlackBee делает производство</li>
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0"/> BlackBee делает упаковку</li>
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0"/> BlackBee делает доставку</li>
-                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0"/> BlackBee дает аналитику по продажам</li>
+                  <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0 mt-2"/> Вы продаете товар своей аудитории</li>
+                  <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0 mt-2"/> BlackBee делает производство</li>
+                  <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0 mt-2"/> BlackBee делает упаковку</li>
+                  <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0 mt-2"/> BlackBee делает доставку</li>
+                  <li className="flex items-start gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0 mt-2"/> BlackBee дает аналитику по продажам</li>
                   <li className="flex items-start gap-3 text-bee-yellow"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0 mt-2"/> Вам не нужно закупать партии и держать склад</li>
                 </ul>
               </div>
 
-              <div className="flex flex-col items-stretch gap-4 pointer-events-auto lg:w-[90%] xl:w-[85%] 2xl:w-[100%]">
+              <div className="flex flex-col items-stretch gap-4 pointer-events-auto w-full max-w-[400px] lg:max-w-full">
                 <button 
                   onClick={() => document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' })} 
                   className="px-8 py-5 md:py-6 bg-bee-yellow text-bee-black font-black uppercase tracking-[0.2em] text-xs md:text-sm hover:scale-[1.02] transition-transform shadow-[0_0_20px_rgba(255,215,0,0.15)] flex justify-center items-center group relative overflow-hidden flex-shrink-0"
@@ -157,12 +215,12 @@ export function SaaSPage() {
                   <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform relative z-10" />
                 </button>
                 
-                <button onClick={() => setIsModalOpen(true)} className="px-8 py-5 md:py-6 border border-bee-border bg-bee-gray text-bee-white font-bold uppercase tracking-[0.2em] text-xs md:text-sm hover:border-bee-yellow/50 hover:bg-bee-white/5 transition-all flex justify-center items-center flex-shrink-0">
+                <button onClick={() => document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-5 md:py-6 border border-bee-border bg-bee-gray text-bee-white font-bold uppercase tracking-[0.2em] text-xs md:text-sm hover:border-bee-yellow/50 hover:bg-bee-white/5 transition-all flex justify-center items-center flex-shrink-0">
                   Посмотреть платформу
                 </button>
               </div>
 
-              <div className="flex flex-wrap gap-2 md:gap-3 pointer-events-auto lg:w-[90%] xl:w-[85%] 2xl:w-[100%]">
+              <div className="flex flex-wrap gap-2 md:gap-3 pointer-events-auto w-full max-w-[400px] lg:max-w-full">
                 {['Без производства', 'Без склада', 'Аналитика продаж'].map((tag) => (
                   <div key={tag} className="border border-bee-border bg-bee-black px-3 py-1.5 md:px-4 md:py-2 font-mono text-[10px] md:text-xs uppercase tracking-widest text-bee-white/50">
                     {tag}
@@ -171,14 +229,14 @@ export function SaaSPage() {
               </div>
             </div>
 
-            <div className="lg:col-start-6 xl:col-start-6 lg:col-end-13 relative z-10 mt-12 lg:mt-0 pointer-events-auto hidden lg:flex flex-col items-end justify-start">
-              <div className="relative w-[120%] xl:w-[130%] max-w-[1100px] xl:-right-[8%] pt-0">
+            <div className="lg:col-start-6 xl:col-start-6 lg:col-end-13 relative z-10 mt-12 lg:mt-0 pointer-events-auto flex flex-col items-center xl:items-end justify-start">
+              <div className="relative w-full xl:w-[105%] max-w-[1100px] xl:-right-[2%] pt-0">
                 {/* Main Screenshot */}
                 <img src="/121.png" alt="Platform Dashboard" className="w-full h-auto object-contain shadow-2xl rounded-lg border border-bee-white/10" />
               </div>
               
               {/* Flow Steps below the image */}
-              <div className="w-[120%] xl:w-[130%] max-w-[1100px] xl:-right-[8%] relative flex items-center gap-2 xl:gap-3 mt-6">
+              <div className="w-full xl:w-[105%] max-w-[1100px] xl:-right-[2%] relative flex items-center gap-2 xl:gap-3 mt-6">
                 {/* Step 1 */}
                 <div className="flex-1 bg-bee-black border border-bee-border p-3 rounded-lg shadow-[0_15px_40px_rgba(0,0,0,0.6)] flex items-center gap-3 hover:-translate-y-1 transition-transform z-20">
                    <div className="bg-bee-yellow/10 p-2 rounded-md text-bee-yellow flex-shrink-0 hidden xl:flex">
@@ -497,9 +555,14 @@ export function SaaSPage() {
             </h2>
           </div>
 
-          <form className="space-y-4 md:space-y-6" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-2">
-              <select defaultValue="" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white appearance-none focus:outline-none focus:border-bee-yellow transition-colors">
+              <select 
+                value={formData.role} 
+                onChange={(e) => setFormData(p => ({ ...p, role: e.target.value }))}
+                required
+                className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white appearance-none focus:outline-none focus:border-bee-yellow transition-colors"
+               >
                 <option value="" disabled>Кто вы?</option>
                 <option value="Автор / блогер">Автор / блогер</option>
                 <option value="Владелец магазина">Владелец магазина</option>
@@ -512,24 +575,69 @@ export function SaaSPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="space-y-2">
-                <input type="text" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Ссылка на блог / магазин / сообщество" />
+                <input 
+                  type="text" 
+                  value={formData.link}
+                  onChange={(e) => setFormData(p => ({ ...p, link: e.target.value }))}
+                  className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" 
+                  placeholder="Ссылка на блог / магазин / сообщество" 
+                />
               </div>
               <div className="space-y-2">
-                <input type="text" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Примерная аудитория" />
+                <input 
+                  type="text" 
+                  value={formData.audience}
+                  onChange={(e) => setFormData(p => ({ ...p, audience: e.target.value }))}
+                  className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" 
+                  placeholder="Примерная аудитория" 
+                />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="space-y-2">
-                <input type="text" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Ниша" />
+                <input 
+                  type="text" 
+                  value={formData.niche}
+                  onChange={(e) => setFormData(p => ({ ...p, niche: e.target.value }))}
+                  className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" 
+                  placeholder="Ниша" 
+                />
               </div>
               <div className="space-y-2">
-                <input type="text" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Контакт (Telegram / Phone / Email)" />
+                <input 
+                  type="text" 
+                  value={formData.contact}
+                  onChange={(e) => setFormData(p => ({ ...p, contact: e.target.value }))}
+                  required
+                  className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" 
+                  placeholder="Контакт (Telegram / Phone / Email)" 
+                />
               </div>
             </div>
 
-            <button type="submit" className="w-full bg-bee-yellow text-bee-black font-bold uppercase tracking-wider text-sm md:text-base py-4 md:py-5 px-8 hover:bg-bee-yellow/90 transition-all shadow-[0_0_20px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.2)]">
-              Получить расчет
+            {submitStatus === 'success' && (
+              <div className="p-4 bg-green-500/10 border border-green-500/20 text-green-400 text-sm text-center">
+                Спасибо! Заявка успешно отправлена.
+              </div>
+            )}
+            
+            {submitStatus === 'error' && (
+              <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-400 text-sm text-center">
+                Произошла ошибка при отправке. Пожалуйста, попробуйте позже.
+              </div>
+            )}
+
+            <button 
+              type="submit" 
+              disabled={isSubmitting}
+              className="w-full bg-bee-yellow text-bee-black font-bold uppercase tracking-wider text-sm md:text-base py-4 md:py-5 px-8 hover:bg-bee-yellow/90 transition-all shadow-[0_0_20px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.2)] disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center"
+            >
+              {isSubmitting ? (
+                <div className="w-5 h-5 border-2 border-bee-black border-t-transparent rounded-full animate-spin" />
+              ) : (
+                "Получить расчет"
+              )}
             </button>
           </form>
         </div>
@@ -539,31 +647,6 @@ export function SaaSPage() {
       <footer className="py-8 border-t border-bee-border text-center text-bee-white/30 text-sm">
          <p>© {new Date().getFullYear()} BlackBee. All rights reserved.</p>
       </footer>
-
-      {/* Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-bee-black/80 backdrop-blur-sm" onClick={() => setIsModalOpen(false)}>
-          <div className="bg-bee-gray border border-bee-border p-8 md:p-12 max-w-md w-full text-center relative" onClick={e => e.stopPropagation()}>
-            <button 
-              className="absolute top-4 right-4 text-bee-white/50 hover:text-bee-white"
-              onClick={() => setIsModalOpen(false)}
-            >
-              ✕
-            </button>
-            <h3 className="text-2xl font-bold mb-2">В разработке</h3>
-            <p className="text-bee-text-muted">Скоро запускаемся. Оставьте заявку, чтобы получить ранний доступ.</p>
-            <button 
-              onClick={() => {
-                setIsModalOpen(false);
-                document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="mt-8 px-6 py-3 bg-bee-yellow text-bee-black font-bold uppercase tracking-wider text-sm w-full hover:bg-bee-yellow/90 transition-colors"
-            >
-              Оставить заявку
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
