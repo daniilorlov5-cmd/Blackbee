@@ -1,55 +1,62 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, BarChart3, PackageOpen, Box, Factory, Printer, Truck, ChevronDown } from "lucide-react";
+import { ArrowLeft, ArrowRight, BarChart3, PackageOpen, Box, Factory, Printer, Truck, ChevronDown, Users, Search, PenTool, Megaphone, Wallet, Send, Moon } from "lucide-react";
 import { Logo } from "../components/Logo";
 
 export function SaaSPage() {
   const [activePlatformTab, setActivePlatformTab] = useState("Мои товары");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const platformTabs = [
     { 
       id: "Мои товары", 
       image: "/121.png",
       benefits: [
-        "Автоматическое создание 3D-мокапов для вашего каталога",
-        "Управление наценкой и маржинальностью в два клика",
-        "Быстрый тест новых товаров без вложений"
+        "Создавайте карточки товаров",
+        "Смотрите себестоимость и маржинальность",
+        "Быстро тестируйте новые идеи",
+        "Запускайте товар без закупки партии"
       ]
     },
     { 
       id: "Видео", 
       image: "/122.png",
       benefits: [
-        "Автогенерация видео-креативов с вашим товаром",
-        "Готовые форматы для Reels, TikTok и Shorts",
-        "Высокая конверсия благодаря реалистичной 3D-анимации"
+        "Генерация видеокреативов с товаром",
+        "Форматы под Reels, TikTok, Shorts",
+        "Визуализация товара без дорогой съемки",
+        "Можно быстро тестировать разные креативы",
+        "Видео помогает продавать еще до массового производства"
       ]
     },
     { 
       id: "Клиенты", 
       image: "/123.png",
       benefits: [
-        "Полная база ваших покупателей и их заказов",
-        "Сегментация для эффективных повторных продаж",
-        "Детальная история взаимодействия с вашим брендом"
+        "База покупателей и история заказов",
+        "Какие товары покупали",
+        "Сегменты клиентов и повторные продажи",
+        "Понимание, какие товары лучше заходят аудитории"
       ]
     },
     { 
       id: "Производство", 
       image: "/124.png",
       benefits: [
-        "Прозрачное отслеживание статуса каждого заказа",
-        "Автоматическая маршрутизация на наши 3D-фермы",
-        "Контроль качества на каждом этапе 3D-печати"
+        "Производство на 3D-ферме BlackBee",
+        "Не нужно закупать оборудование и нанимать команду",
+        "Не нужно держать склад и закупать партии заранее",
+        "Товар производится под заказ",
+        "BlackBee упаковывает и отправляет товар покупателю"
       ]
     },
     { 
       id: "Аналитика", 
       image: "/125.png",
       benefits: [
-        "Дашборд с ключевыми метриками: переходы, конверсии",
-        "Подробная воронка продаж по каждому вашему товару",
-        "Автоматический расчет чистой прибыли и LTV покупателей"
+        "Продажи, выручка, маржинальность",
+        "Популярные товары и статистика видео",
+        "Заказы, клиенты, эффективность трафика"
       ]
     }
   ];
@@ -67,7 +74,7 @@ export function SaaSPage() {
           </Link>
           
           <div className="hidden lg:flex items-center gap-8">
-            {['Как работает', 'Платформа', 'Экономика', 'FAQ'].map((item) => (
+            {['Как работает', 'Платформа', 'FAQ'].map((item) => (
               <a 
                 key={item} 
                 href={`#${item.toLowerCase()}`}
@@ -78,13 +85,30 @@ export function SaaSPage() {
             ))}
           </div>
 
-          <Link 
-            to="/"
-            className="px-6 py-3 border border-bee-border text-bee-yellow bg-bee-gray hover:bg-bee-yellow hover:text-bee-black transition-all rounded-sm text-xs md:text-sm font-bold uppercase tracking-wider relative overflow-hidden group/btn flex items-center"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2 group-hover/btn:-translate-x-1 transition-transform" />
-            На сайт BlackBee
-          </Link>
+          <div className="flex items-center gap-4">
+            <div className="hidden xl:flex items-center gap-3 mr-4">
+               <a href="tel:+79377107767" className="font-bold text-sm tracking-wider hover:text-bee-yellow transition-colors whitespace-nowrap">+7 937 710 7767</a>
+               <a href="#" className="p-3 border border-bee-border bg-bee-gray hover:bg-bee-white/5 transition-colors rounded-sm text-bee-white">
+                 <Send className="w-4 h-4" />
+               </a>
+               <button className="p-3 border border-bee-border bg-bee-gray hover:bg-bee-white/5 transition-colors rounded-sm text-bee-white">
+                 <Moon className="w-4 h-4" />
+               </button>
+            </div>
+            <button 
+              onClick={() => document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' })}
+              className="hidden lg:block bg-bee-yellow text-bee-black font-bold uppercase tracking-wider text-[10px] md:text-sm py-3 px-6 hover:bg-bee-yellow/90 hover:scale-[1.02] transition-all shadow-[0_0_15px_rgba(255,215,0,0.1)]"
+            >
+              Запустить товар
+            </button>
+            <Link 
+              to="/"
+              className="hidden sm:flex px-6 py-3 border border-bee-border text-bee-white/70 hover:text-bee-white bg-bee-gray hover:bg-bee-white/10 transition-all rounded-sm text-xs font-bold uppercase tracking-wider relative overflow-hidden group/btn items-center"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2 group-hover/btn:-translate-x-1 transition-transform" />
+              На сайт BlackBee
+            </Link>
+          </div>
         </div>
       </nav>
 
@@ -93,71 +117,149 @@ export function SaaSPage() {
         {/* Abstract Background Element */}
         <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-bee-yellow/5 rounded-full blur-[150px] -z-10 pointer-events-none" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
-          <div className="lg:col-span-6 space-y-8 md:space-y-12">
-            <div className="inline-block border border-bee-white/20 px-4 py-2 rounded-sm bg-bee-white/5">
+        <div className="flex flex-col w-full">
+          {/* Headline spans wider */}
+          <div className="mb-10 lg:mb-12 pointer-events-none relative z-30">
+            <div className="inline-block border border-bee-border px-4 py-2 rounded-sm bg-bee-gray pointer-events-auto mb-6">
               <span className="text-[10px] md:text-xs uppercase tracking-widest font-bold text-bee-white/70">
-                Для блогеров, арбитражников и владельцев аудиторий
+                Для тех, у кого есть аудитория, магазин, сообщество или идея
               </span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-[4rem] xl:text-[5rem] font-black uppercase leading-[1.05] tracking-tight text-balance">
-              Запускайте <br className="hidden lg:block" />
-              <span className="text-bee-yellow">3D-товары</span> <br className="hidden lg:block" />
-              без производства
+            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-[3.5rem] xl:text-[4rem] 2xl:text-[4.8rem] font-black uppercase leading-[1.05] tracking-tight pointer-events-auto w-full">
+              Запустите свой товар без склада,<br className="hidden lg:block"/> закупок и производства
             </h1>
-
-            <p className="text-lg md:text-xl text-bee-text-muted font-light max-w-2xl leading-relaxed">
-              Мы берем на себя 3D-моделирование, производство, склад и доставку заказов. <span className="text-bee-white font-medium">Вы занимаетесь только трафиком и продажами.</span>
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
-              <button className="px-8 py-5 md:py-6 bg-bee-yellow text-bee-black font-black uppercase tracking-[0.2em] text-xs md:text-sm hover:scale-[1.02] transition-transform shadow-[0_0_30px_rgba(255,215,0,0.15)] flex justify-center items-center group relative overflow-hidden">
-                <span className="relative z-10">Запустить первый товар</span>
-                <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform relative z-10" />
-              </button>
-              
-              <button className="px-8 py-5 md:py-6 border border-bee-border bg-bee-gray text-bee-white font-bold uppercase tracking-[0.2em] text-xs md:text-sm hover:border-bee-yellow/50 hover:bg-bee-white/5 transition-all flex justify-center items-center">
-                Посмотреть платформу
-              </button>
-            </div>
-
-            <div className="flex flex-wrap gap-2 md:gap-3 pt-6 lg:pt-10">
-              {['Print on demand', 'Модель 3D-фермы', 'Аналитика'].map((tag) => (
-                <div key={tag} className="border border-bee-border bg-bee-black px-3 py-1.5 md:px-4 md:py-2 font-mono text-[10px] md:text-xs uppercase tracking-widest text-bee-white/50">
-                  {tag}
-                </div>
-              ))}
-            </div>
           </div>
 
-          <div className="lg:col-span-6 relative">
-            <div className="bg-bee-black border border-bee-border p-6 md:p-10 lg:p-12 relative overflow-hidden flex flex-col justify-center">
-              {/* Decorative corner accents */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-bee-yellow opacity-50" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-bee-yellow opacity-50" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start w-full relative">
+            <div className="lg:col-start-1 lg:col-end-6 xl:col-end-5 2xl:col-end-4 space-y-8 md:space-y-10 relative z-30 pointer-events-none">
+              <div className="pointer-events-auto bg-bee-gray/50 border border-bee-border p-6 md:p-8 rounded-sm lg:w-[90%] xl:w-[85%] 2xl:w-[100%]">
+                <p className="text-base md:text-lg text-bee-text-muted leading-relaxed mb-6 lg:max-w-md">
+                  Вы приносите идею или аудиторию — мы помогаем сделать товар, проверить спрос, произвести его и доставить покупателям.
+                </p>
 
-              <div className="relative z-10 space-y-6">
+                <ul className="text-bee-white/90 space-y-3 text-sm md:text-base font-medium">
+                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0"/> Вы продаете товар своей аудитории</li>
+                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0"/> BlackBee делает производство</li>
+                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0"/> BlackBee делает упаковку</li>
+                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0"/> BlackBee делает доставку</li>
+                  <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0"/> BlackBee дает аналитику по продажам</li>
+                  <li className="flex items-start gap-3 text-bee-yellow"><div className="w-1.5 h-1.5 bg-bee-yellow rounded-full flex-shrink-0 mt-2"/> Вам не нужно закупать партии и держать склад</li>
+                </ul>
+              </div>
+
+              <div className="flex flex-col items-stretch gap-4 pointer-events-auto lg:w-[90%] xl:w-[85%] 2xl:w-[100%]">
+                <button 
+                  onClick={() => document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' })} 
+                  className="px-8 py-5 md:py-6 bg-bee-yellow text-bee-black font-black uppercase tracking-[0.2em] text-xs md:text-sm hover:scale-[1.02] transition-transform shadow-[0_0_20px_rgba(255,215,0,0.15)] flex justify-center items-center group relative overflow-hidden flex-shrink-0"
+                >
+                  <span className="relative z-10">Запустить первый товар</span>
+                  <ArrowRight className="w-4 h-4 ml-3 group-hover:translate-x-1 transition-transform relative z-10" />
+                </button>
                 
-                {/* 3D Product Mockup Card */}
-                <div className="bg-bee-gray border border-bee-border flex items-center justify-center relative group p-4 lg:p-8">
-                  <div className="absolute inset-0 bg-gradient-to-br from-bee-yellow/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
-                  <img src="/121.png" alt="3D Product Mockup" className="w-full h-auto object-contain transition-all duration-700 relative z-20 group-hover:scale-[1.02]" />
-                </div>
+                <button onClick={() => setIsModalOpen(true)} className="px-8 py-5 md:py-6 border border-bee-border bg-bee-gray text-bee-white font-bold uppercase tracking-[0.2em] text-xs md:text-sm hover:border-bee-yellow/50 hover:bg-bee-white/5 transition-all flex justify-center items-center flex-shrink-0">
+                  Посмотреть платформу
+                </button>
+              </div>
 
-                <div className="space-y-4">
-                  <div className="bg-bee-gray/50 border border-bee-border p-5 hover:bg-bee-gray transition-colors cursor-default flex items-center justify-between">
-                    <span className="text-bee-white/80 font-medium tracking-wide">Дашборд: продажи, клиенты, переходы</span>
-                    <BarChart3 className="w-5 h-5 text-bee-yellow/70" />
+              <div className="flex flex-wrap gap-2 md:gap-3 pointer-events-auto lg:w-[90%] xl:w-[85%] 2xl:w-[100%]">
+                {['Без производства', 'Без склада', 'Аналитика продаж'].map((tag) => (
+                  <div key={tag} className="border border-bee-border bg-bee-black px-3 py-1.5 md:px-4 md:py-2 font-mono text-[10px] md:text-xs uppercase tracking-widest text-bee-white/50">
+                    {tag}
                   </div>
-                  <div className="bg-bee-gray/50 border border-bee-border p-5 hover:bg-bee-gray transition-colors cursor-default flex items-center justify-between">
-                    <span className="text-bee-white/80 font-medium tracking-wide">Запущенные товары и видео</span>
-                    <PackageOpen className="w-5 h-5 text-bee-yellow/70" />
-                  </div>
-                </div>
-
+                ))}
               </div>
             </div>
+
+            <div className="lg:col-start-6 xl:col-start-6 lg:col-end-13 relative z-10 mt-12 lg:mt-0 pointer-events-auto hidden lg:flex flex-col items-end justify-start">
+              <div className="relative w-[120%] xl:w-[130%] max-w-[1100px] xl:-right-[8%] pt-0">
+                {/* Main Screenshot */}
+                <img src="/121.png" alt="Platform Dashboard" className="w-full h-auto object-contain shadow-2xl rounded-lg border border-bee-white/10" />
+              </div>
+              
+              {/* Flow Steps below the image */}
+              <div className="w-[120%] xl:w-[130%] max-w-[1100px] xl:-right-[8%] relative flex items-center gap-2 xl:gap-3 mt-6">
+                {/* Step 1 */}
+                <div className="flex-1 bg-bee-black border border-bee-border p-3 rounded-lg shadow-[0_15px_40px_rgba(0,0,0,0.6)] flex items-center gap-3 hover:-translate-y-1 transition-transform z-20">
+                   <div className="bg-bee-yellow/10 p-2 rounded-md text-bee-yellow flex-shrink-0 hidden xl:flex">
+                      <Box className="w-5 h-5" />
+                   </div>
+                   <div>
+                      <div className="text-[8px] md:text-[9px] uppercase tracking-widest font-bold text-bee-yellow/70 mb-0.5">Шаг 1</div>
+                      <div className="text-[10px] xl:text-xs font-bold text-bee-white leading-tight">Выбор<br className="xl:hidden"/> товара</div>
+                   </div>
+                </div>
+                
+                <ArrowRight className="text-bee-yellow/50 w-3 h-3 xl:w-4 xl:h-4 flex-shrink-0" />
+                
+                {/* Step 2 */}
+                <div className="flex-1 bg-bee-black border border-bee-border p-3 rounded-lg shadow-[0_15px_40px_rgba(0,0,0,0.6)] flex items-center gap-3 hover:-translate-y-1 transition-transform z-20">
+                   <div className="bg-bee-white/5 p-2 rounded-md text-bee-white flex-shrink-0 hidden xl:flex">
+                      <Factory className="w-5 h-5" />
+                   </div>
+                   <div>
+                      <div className="text-[8px] md:text-[9px] uppercase tracking-widest font-bold text-bee-white/50 mb-0.5">Шаг 2</div>
+                      <div className="text-[10px] xl:text-xs font-bold text-bee-white leading-tight">Производство<br className="xl:hidden"/> под заказ</div>
+                   </div>
+                </div>
+
+                <ArrowRight className="text-bee-yellow/50 w-3 h-3 xl:w-4 xl:h-4 flex-shrink-0" />
+
+                {/* Step 3 */}
+                <div className="flex-1 bg-bee-black border border-bee-border p-3 rounded-lg shadow-[0_15px_40px_rgba(0,0,0,0.6)] flex items-center gap-3 hover:-translate-y-1 transition-transform z-20">
+                   <div className="bg-bee-yellow/10 p-2 rounded-md text-bee-yellow flex-shrink-0 hidden xl:flex">
+                      <Truck className="w-5 h-5" />
+                   </div>
+                   <div>
+                      <div className="text-[8px] md:text-[9px] uppercase tracking-widest font-bold text-bee-yellow/70 mb-0.5">Шаг 3</div>
+                      <div className="text-[10px] xl:text-xs font-bold text-bee-white leading-tight">Сборка и<br className="xl:hidden"/> Доставка</div>
+                   </div>
+                </div>
+
+                <ArrowRight className="text-bee-yellow/50 w-3 h-3 xl:w-4 xl:h-4 flex-shrink-0" />
+
+                {/* Step 4 (Результат) */}
+                <div className="flex-[1.2] bg-bee-yellow border border-bee-yellow p-3 lg:p-4 rounded-lg shadow-[0_0_30px_rgba(255,215,0,0.3)] flex items-center gap-3 hover:-translate-y-1 transition-transform z-20">
+                   <div className="bg-bee-black/10 p-2 rounded-md flex-shrink-0 hidden xl:flex">
+                      <Wallet className="w-5 h-5 text-bee-black" />
+                   </div>
+                   <div>
+                      <div className="text-[8px] md:text-[9px] uppercase tracking-widest font-bold text-bee-black/60 mb-0.5">Результат</div>
+                      <div className="text-[10px] xl:text-xs font-black text-bee-black uppercase leading-tight">Прибыль<br className="xl:hidden"/> и Аналитика</div>
+                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What is BlackBee Section */}
+      <section className="py-20 md:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 xl:px-12 bg-bee-black relative z-10 border-t border-bee-border/50">
+        <div className="w-full max-w-[1600px] mx-auto">
+          <div className="max-w-5xl mb-16 lg:mb-24">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[1.1] text-balance">
+              BlackBee — это платформа для запуска физических товаров <span className="text-bee-yellow">без собственного производства</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {[
+              { text: "У вас есть аудитория, магазин, блог, ниша или идея.", icon: <Users className="w-8 h-8 md:w-10 md:h-10 text-bee-white/30 mb-6 group-hover:text-bee-yellow transition-colors" /> },
+              { text: "Мы вместе выбираем товар.", icon: <Search className="w-8 h-8 md:w-10 md:h-10 text-bee-white/30 mb-6 group-hover:text-bee-yellow transition-colors" /> },
+              { text: "BlackBee делает модель и тестовый образец.", icon: <PenTool className="w-8 h-8 md:w-10 md:h-10 text-bee-white/30 mb-6 group-hover:text-bee-yellow transition-colors" /> },
+              { text: "Вы запускаете рекламу или рассказываете аудитории.", icon: <Megaphone className="w-8 h-8 md:w-10 md:h-10 text-bee-white/30 mb-6 group-hover:text-bee-yellow transition-colors" /> },
+              { text: "Заказы попадают в систему, BlackBee производит и доставляет товар.", icon: <Factory className="w-8 h-8 md:w-10 md:h-10 text-bee-white/30 mb-6 group-hover:text-bee-yellow transition-colors" /> },
+              { text: "Вы видите продажи, клиентов и прибыль в кабинете.", icon: <Wallet className="w-8 h-8 md:w-10 md:h-10 text-bee-white/30 mb-6 group-hover:text-bee-yellow transition-colors" /> }
+            ].map((item, i) => (
+              <div key={i} className="bg-bee-gray/50 border border-bee-border p-6 md:p-8 h-full flex flex-col hover:border-bee-yellow/20 transition-colors group">
+                {item.icon}
+                <div className="flex gap-4">
+                  <div className="w-2 h-2 mt-2.5 rounded-full bg-bee-yellow flex-shrink-0 shadow-[0_0_10px_rgba(255,215,0,0.5)]" />
+                  <p className="text-base md:text-lg text-bee-white/90 font-medium leading-relaxed">{item.text}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -269,76 +371,45 @@ export function SaaSPage() {
       {/* How it Works Section */}
       <section id="как работает" className="py-20 md:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 xl:px-12 bg-bee-black relative z-10">
         <div className="w-full max-w-[1600px] mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-16">
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-12 md:mb-16">
             Как это работает
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
-              { step: "1", title: "Идея", desc: "Выбираем товар под нишу." },
-              { step: "2", title: "Тест", desc: "Модель и тестовая партия." },
-              { step: "3", title: "Трафик", desc: "Посты, видео, реклама." },
-              { step: "4", title: "Заказы", desc: "BlackBee производит и доставляет." },
+              { step: "1", title: "Вы приносите идею или аудиторию", desc: "Например: блог, канал, магазин, сообщество, база клиентов или просто понимание ниши." },
+              { step: "2", title: "Мы подбираем товар", desc: "Вместе выбираем, что можно быстро произвести и протестировать." },
+              { step: "3", title: "Делаем тестовую модель", desc: "BlackBee готовит первый вариант товара в течение суток." },
+              { step: "4", title: "Готовим товар к продажам", desc: "Дорабатываем товар, считаем себестоимость, цену и маржинальность." },
+              { step: "5", title: "Вы приводите трафик", desc: "Через блог, рекламу, сторис, Reels, Telegram, TikTok, маркетплейс или свой магазин." },
+              { step: "6", title: "BlackBee производит и доставляет", desc: "Мы берем на себя производство, упаковку, доставку и обработку заказов." },
+              { step: "7", title: "Вы видите результат", desc: "Продажи, заказы, клиенты, товары, видео, аналитика в личном кабинете." },
             ].map((item, i) => (
-              <div key={i} className="bg-bee-gray/50 border border-bee-border p-8 hover:bg-bee-gray transition-colors flex flex-col relative overflow-hidden group">
+              <div key={i} className={`bg-bee-gray/50 border border-bee-border p-6 md:p-8 hover:bg-bee-gray transition-colors flex flex-col relative overflow-hidden group ${i >= 4 && i <= 6 ? 'lg:col-span-auto' : ''} ${i === 6 ? 'md:col-span-2 lg:col-span-2' : ''}`}>
                 {/* Number Watermark */}
-                <span className="absolute -right-4 -bottom-8 text-[120px] font-black text-bee-white/[0.02] group-hover:text-bee-yellow/[0.05] transition-colors pointer-events-none select-none">
+                <span className="absolute -right-2 -bottom-6 md:-right-4 md:-bottom-8 text-[100px] md:text-[120px] font-black text-bee-white/[0.02] group-hover:text-bee-yellow/[0.05] transition-colors pointer-events-none select-none">
                   {item.step}
                 </span>
                 
-                <div className="font-mono text-bee-yellow text-sm mb-4">{item.step}</div>
-                <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                <p className="text-bee-text-muted mt-auto relative z-10">{item.desc}</p>
+                <div className="font-mono text-bee-yellow text-sm font-bold mb-3 md:mb-4">Шаг {item.step}</div>
+                <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 pr-8 relative z-10">{item.title}</h3>
+                <p className="text-sm md:text-base text-bee-text-muted mt-auto relative z-10 leading-relaxed">{item.desc}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12 md:mt-16 flex justify-center">
+            <button 
+              onClick={() => document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-bee-yellow text-bee-black font-bold uppercase tracking-wider text-sm md:text-base py-4 md:py-5 px-8 hover:bg-bee-yellow/90 hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(255,215,0,0.15)]"
+            >
+              Запустить товар
+            </button>
           </div>
         </div>
       </section>
 
       {/* Estimate Section */}
-      <section id="экономика" className="py-20 md:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 xl:px-12 bg-bee-gray relative z-10 border-t border-bee-border/50">
-        <div className="w-full max-w-[1600px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24 items-start">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4">
-                Оцените потенциал запуска
-              </h2>
-              <p className="text-bee-text-muted text-lg md:text-xl mb-8 lg:mb-10">
-                Примерный расчет помогает понять порядок цифр до общения с командой.
-              </p>
-              
-              <div className="space-y-4 md:space-y-6 max-w-xl">
-                <div className="space-y-1.5 md:space-y-2">
-                  <label className="text-xs md:text-sm font-medium text-bee-white/80">Количество аудитории / Охваты</label>
-                  <input type="text" className="w-full bg-bee-black border border-bee-border px-4 py-3 md:py-4 text-bee-white placeholder-bee-white/20 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Например: 10 000" />
-                </div>
-                <div className="space-y-1.5 md:space-y-2">
-                  <label className="text-xs md:text-sm font-medium text-bee-white/80">Примерная цена товара ($)</label>
-                  <input type="text" className="w-full bg-bee-black border border-bee-border px-4 py-3 md:py-4 text-bee-white placeholder-bee-white/20 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Например: 50" />
-                </div>
-                <div className="space-y-1.5 md:space-y-2">
-                  <label className="text-xs md:text-sm font-medium text-bee-white/80">Ожидаемая конверсия (%)</label>
-                  <input type="text" className="w-full bg-bee-black border border-bee-border px-4 py-3 md:py-4 text-bee-white placeholder-bee-white/20 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Например: 1.5" />
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-bee-black border border-bee-border p-6 sm:p-8 lg:p-12 relative overflow-hidden group h-full flex flex-col justify-center mt-8 lg:mt-0">
-              <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-bee-yellow/5 blur-[80px] rounded-full group-hover:bg-bee-yellow/10 transition-colors pointer-events-none" />
-              <div className="relative z-10">
-                <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Примерный результат</h3>
-                <p className="text-bee-text-muted mb-8 md:mb-12 text-sm md:text-base">
-                  Оборот, доход партнера, количество заказов.
-                </p>
-                <button className="w-full bg-bee-yellow/10 text-bee-yellow border border-bee-yellow/30 font-bold uppercase tracking-wider text-xs md:text-sm py-4 md:py-5 px-6 md:px-8 hover:bg-bee-yellow hover:text-bee-black transition-all">
-                  Получить расчет под мою аудиторию
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* What we do Section */}
       <section className="py-20 md:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 xl:px-12 bg-bee-black relative z-10 border-t border-bee-border/50">
         <div className="w-full max-w-[1600px] mx-auto">
@@ -372,12 +443,20 @@ export function SaaSPage() {
           <div className="space-y-4">
             {[
               {
-                q: "Нужен ли мне свой товар?",
-                a: "Не обязательно. Можно прийти с аудиторией или нишей — команда поможет подобрать формат."
+                q: "Нужен ли мне готовый товар?",
+                a: "Нет. Можно прийти с аудиторией, нишей или идеей — BlackBee поможет подобрать товар."
+              },
+              {
+                q: "Кто занимается производством?",
+                a: "BlackBee производит товары на своей 3D-ферме."
               },
               {
                 q: "Кто занимается доставкой?",
-                a: "Доставка и fulfillment находятся на стороне BlackBee."
+                a: "BlackBee берет на себя упаковку и доставку заказов."
+              },
+              {
+                q: "Нужно ли закупать партию заранее?",
+                a: "Нет. Товары можно производить под заказ."
               }
             ].map((faq, i) => (
               <details key={i} className="group bg-bee-black border border-bee-border [&_summary::-webkit-details-marker]:hidden">
@@ -393,11 +472,20 @@ export function SaaSPage() {
               </details>
             ))}
           </div>
+
+          <div className="mt-12 md:mt-16 flex justify-center">
+            <button 
+              onClick={() => document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-bee-yellow text-bee-black font-bold uppercase tracking-wider text-sm md:text-base py-4 md:py-5 px-8 hover:bg-bee-yellow/90 hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(255,215,0,0.15)]"
+            >
+              Запустить товар
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Form Section */}
-      <section className="py-24 md:py-36 lg:py-48 px-4 sm:px-6 lg:px-8 xl:px-12 bg-bee-black relative z-10 border-t border-bee-border/50 overflow-hidden">
+      <section id="form-section" className="py-24 md:py-36 lg:py-48 px-4 sm:px-6 lg:px-8 xl:px-12 bg-bee-black relative z-10 border-t border-bee-border/50 overflow-hidden">
          {/* Background elements */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-bee-yellow/20 to-transparent" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-bee-yellow/5 blur-[120px] rounded-full pointer-events-none" />
@@ -405,47 +493,43 @@ export function SaaSPage() {
         <div className="w-full max-w-[800px] mx-auto relative z-10">
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight mb-4 md:mb-6">
-              Давайте подберем первый товар под вашу аудиторию
+              Хотите понять, какой товар можно запустить под вашу аудиторию?
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-bee-text-muted px-4 md:px-0">
-              Оставьте контакт и пару деталей о трафике. Мы предложим формат запуска и следующий шаг.
-            </p>
           </div>
 
           <form className="space-y-4 md:space-y-6" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-              <div className="space-y-2">
-                <input type="text" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Имя" />
-              </div>
-              <div className="space-y-2">
-                <input type="text" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Telegram / Email" />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-              <div className="space-y-2 relative">
-                <select defaultValue="" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white/90 focus:outline-none focus:border-bee-yellow transition-colors appearance-none cursor-pointer">
-                  <option value="" disabled className="text-bee-white/30">Кто вы?</option>
-                  <option value="blogger" className="bg-bee-black text-bee-white">Блогер</option>
-                  <option value="arbitrage" className="bg-bee-black text-bee-white">Арбитражник</option>
-                  <option value="brand" className="bg-bee-black text-bee-white">Владелец бренда</option>
-                  <option value="other" className="bg-bee-black text-bee-white">Другое</option>
-                </select>
-                <div className="absolute right-4 md:right-5 top-1/2 -translate-y-1/2 pointer-events-none">
-                  <ChevronDown className="w-4 h-4 md:w-5 md:h-5 text-bee-white/50" />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <input type="text" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Где аудитория / трафик?" />
-              </div>
-            </div>
-
             <div className="space-y-2">
-              <textarea rows={4} className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors resize-none" placeholder="Ниша или идея товара"></textarea>
+              <select defaultValue="" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white appearance-none focus:outline-none focus:border-bee-yellow transition-colors">
+                <option value="" disabled>Кто вы?</option>
+                <option value="Автор / блогер">Автор / блогер</option>
+                <option value="Владелец магазина">Владелец магазина</option>
+                <option value="Владелец сообщества">Владелец сообщества</option>
+                <option value="Бренд">Бренд</option>
+                <option value="Есть аудитория">Есть аудитория</option>
+                <option value="Есть идея товара">Есть идея товара</option>
+                <option value="Другое">Другое</option>
+              </select>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <div className="space-y-2">
+                <input type="text" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Ссылка на блог / магазин / сообщество" />
+              </div>
+              <div className="space-y-2">
+                <input type="text" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Примерная аудитория" />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <div className="space-y-2">
+                <input type="text" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Ниша" />
+              </div>
+              <div className="space-y-2">
+                <input type="text" className="w-full bg-bee-gray border border-bee-border px-5 md:px-6 py-3.5 md:py-4 text-sm md:text-base text-bee-white placeholder-bee-white/30 focus:outline-none focus:border-bee-yellow transition-colors" placeholder="Контакт (Telegram / Phone / Email)" />
+              </div>
             </div>
 
             <button type="submit" className="w-full bg-bee-yellow text-bee-black font-bold uppercase tracking-wider text-sm md:text-base py-4 md:py-5 px-8 hover:bg-bee-yellow/90 transition-all shadow-[0_0_20px_rgba(255,215,0,0.1)] hover:shadow-[0_0_30px_rgba(255,215,0,0.2)]">
-              Получить разбор и демо
+              Получить расчет
             </button>
           </form>
         </div>
@@ -455,6 +539,31 @@ export function SaaSPage() {
       <footer className="py-8 border-t border-bee-border text-center text-bee-white/30 text-sm">
          <p>© {new Date().getFullYear()} BlackBee. All rights reserved.</p>
       </footer>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-bee-black/80 backdrop-blur-sm" onClick={() => setIsModalOpen(false)}>
+          <div className="bg-bee-gray border border-bee-border p-8 md:p-12 max-w-md w-full text-center relative" onClick={e => e.stopPropagation()}>
+            <button 
+              className="absolute top-4 right-4 text-bee-white/50 hover:text-bee-white"
+              onClick={() => setIsModalOpen(false)}
+            >
+              ✕
+            </button>
+            <h3 className="text-2xl font-bold mb-2">В разработке</h3>
+            <p className="text-bee-text-muted">Скоро запускаемся. Оставьте заявку, чтобы получить ранний доступ.</p>
+            <button 
+              onClick={() => {
+                setIsModalOpen(false);
+                document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="mt-8 px-6 py-3 bg-bee-yellow text-bee-black font-bold uppercase tracking-wider text-sm w-full hover:bg-bee-yellow/90 transition-colors"
+            >
+              Оставить заявку
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
