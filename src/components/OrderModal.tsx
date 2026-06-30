@@ -107,7 +107,7 @@ export function OrderModal() {
  // Simulate API request - To connect exactly to the user's spreadsheet,
  // they will need to set up a Google Apps Script Web App. // Here we define the logic for when they add VITE_GOOGLE_SHEETS_WEBHOOK to their env.
  try {
- const webhookUrl = 'https://script.google.com/macros/s/AKfycbyqxBrhDoEfZl6A4eJgfgyb1IIFeH15xQz33XEBfOyYx_HZHWN4QqIAcOFj7tDgmpDorw/exec';
+ const webhookUrl = 'https://script.google.com/macros/s/AKfycbwLpKtmd4lzMMUB9DYXk8b8oCi7Rchr0G-YVaeQgEQ7Ye4Gn3Ob_xl5afqO-g6nmoCZ9A/exec';
  console.log('Sending request to:', webhookUrl);
  console.log('Payload:', payload);
 

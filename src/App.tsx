@@ -15,6 +15,7 @@ import { SouvenirsPage } from "./pages/SouvenirsPage";
 import { MassProductionPage } from "./pages/MassProductionPage";
 import { MarketplacePage } from "./pages/MarketplacePage";
 import { SaaSPage } from "./pages/SaaSPage";
+import { MerchPage } from "./pages/MerchPage";
 
 export default function App() {
   const location = useLocation();
@@ -33,6 +34,7 @@ export default function App() {
     <Route path="/souvenirs" element={<SouvenirsPage />} />
     <Route path="/mass-production" element={<MassProductionPage />} />
     <Route path="/marketplace" element={<MarketplacePage />} />
+    <Route path="/merch" element={<MerchPage />} />
   </Routes>
   </main>
   {!isSaaS && <Footer />}

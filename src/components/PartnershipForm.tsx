@@ -36,7 +36,7 @@ export function PartnershipForm() {
  };
 
  try {
- const webhookUrl = 'https://script.google.com/macros/s/AKfycbyqxBrhDoEfZl6A4eJgfgyb1IIFeH15xQz33XEBfOyYx_HZHWN4QqIAcOFj7tDgmpDorw/exec';
+ const webhookUrl = 'https://script.google.com/macros/s/AKfycbwLpKtmd4lzMMUB9DYXk8b8oCi7Rchr0G-YVaeQgEQ7Ye4Gn3Ob_xl5afqO-g6nmoCZ9A/exec';
  await fetch(webhookUrl, {
  method: 'POST',
  mode: 'no-cors',
