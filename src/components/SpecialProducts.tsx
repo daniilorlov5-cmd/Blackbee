@@ -5,7 +5,7 @@
 
 import { Sparkles, Paintbrush, Layers, ArrowRight } from "lucide-react";
 import React from "react";
-import specialProductImg from "./12345.jpg";
+import specialProductImg from "./12345.png";
 import { useOrderModal } from "../contexts/OrderModalContext";
 
 export function SpecialProducts() {

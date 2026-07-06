@@ -44,7 +44,7 @@ const projects: Project[] = [
  duration:"4 часа / изд.",
  price:"14 500 ₽",
  image:"https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=800&auto=format&fit=crop",
- video:"/22.MP4"
+ video:"/22.mp4"
  },
  {
  id: 3,
