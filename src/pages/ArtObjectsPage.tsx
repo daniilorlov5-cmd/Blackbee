@@ -120,8 +120,8 @@ export function ArtObjectsPage() {
             </div>
           </div>
 
-          <div className="relative h-full min-h-[500px] lg:min-h-[600px] rounded-sm overflow-hidden border border-bee-border group cursor-pointer" onClick={() => setSelectedImage("/st4.jpg")}>
-            <img src="/st4.jpg" alt="Производство матрешки" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div className="relative h-full min-h-[500px] lg:min-h-[600px] rounded-sm overflow-hidden border border-bee-border group cursor-pointer" onClick={() => setSelectedImage("/st4.png")}>
+            <img src="/st4.png" alt="Производство матрешки" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute top-4 right-4 bg-bee-white text-bee-black font-bold text-xs uppercase tracking-widest px-3 py-1.5 flex items-center gap-2">
               <div className="w-1.5 h-1.5 bg-bee-black rounded-full"></div>
               Спецификация
@@ -191,9 +191,9 @@ export function ArtObjectsPage() {
             </div>
           </div>
           <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
-            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st1.jpg")}>
+            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st1.png")}>
               <img 
-                src="/st1.jpg" 
+                src="/st1.png" 
                 alt="Арт объект ZOI 1" 
                 className="w-full h-full aspect-square object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
               />
@@ -201,9 +201,9 @@ export function ArtObjectsPage() {
                 <Maximize2 size={16} className="text-bee-white md:w-5 md:h-5" />
               </div>
             </div>
-            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st2.jpg")}>
+            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st2.png")}>
               <img 
-                src="/st2.jpg" 
+                src="/st2.png" 
                 alt="Арт объект ZOI 2" 
                 className="w-full h-full aspect-square object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
               />
@@ -217,9 +217,9 @@ export function ArtObjectsPage() {
         {/* Case 2 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="order-1 lg:order-1 grid grid-cols-2 gap-4">
-            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st3.jpg")}>
+            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st3.png")}>
               <img 
-                src="/st3.jpg" 
+                src="/st3.png" 
                 alt="Матрешка 1" 
                 className="w-full h-full aspect-square object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
               />
@@ -227,9 +227,9 @@ export function ArtObjectsPage() {
                 <Maximize2 size={16} className="text-bee-white md:w-5 md:h-5" />
               </div>
             </div>
-            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st4.jpg")}>
+            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st4.png")}>
               <img 
-                src="/st4.jpg" 
+                src="/st4.png" 
                 alt="Матрешка 2" 
                 className="w-full h-full aspect-square object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
               />
@@ -289,9 +289,9 @@ export function ArtObjectsPage() {
             </div>
           </div>
           <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
-            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st5.jpg")}>
+            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st5.png")}>
               <img 
-                src="/st5.jpg" 
+                src="/st5.png" 
                 alt="Ящерица 1" 
                 className="w-full h-full aspect-square object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
               />
@@ -299,9 +299,9 @@ export function ArtObjectsPage() {
                 <Maximize2 size={16} className="text-bee-white md:w-5 md:h-5" />
               </div>
             </div>
-            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st6.jpg")}>
+            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st6.png")}>
               <img 
-                src="/st6.jpg" 
+                src="/st6.png" 
                 alt="Ящерица 2" 
                 className="w-full h-full aspect-square object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
               />
@@ -315,9 +315,9 @@ export function ArtObjectsPage() {
         {/* Case 4 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="order-1 lg:order-1 grid grid-cols-2 gap-4">
-            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st7.jpg")}>
+            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st7.png")}>
               <img 
-                src="/st7.jpg" 
+                src="/st7.png" 
                 alt="Губа 1" 
                 className="w-full h-full aspect-square object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
               />
@@ -325,9 +325,9 @@ export function ArtObjectsPage() {
                 <Maximize2 size={16} className="text-bee-white md:w-5 md:h-5" />
               </div>
             </div>
-            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st8.jpg")}>
+            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st8.png")}>
               <img 
-                src="/st8.jpg" 
+                src="/st8.png" 
                 alt="Губа 2" 
                 className="w-full h-full aspect-square object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
               />
@@ -383,9 +383,9 @@ export function ArtObjectsPage() {
             </div>
           </div>
           <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
-            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st9.jpg")}>
+            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st9.png")}>
               <img 
-                src="/st9.jpg" 
+                src="/st9.png" 
                 alt="Кофейня roji 1" 
                 className="w-full h-full aspect-square object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
               />
@@ -394,9 +394,9 @@ export function ArtObjectsPage() {
               </div>
             </div>
             <div className="grid grid-rows-2 gap-4">
-              <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st10.jpg")}>
+              <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st10.png")}>
                 <img 
-                  src="/st10.jpg" 
+                  src="/st10.png" 
                   alt="Кофейня roji 2" 
                   className="w-full h-full object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
                 />
@@ -404,9 +404,9 @@ export function ArtObjectsPage() {
                   <Maximize2 size={16} className="text-bee-white md:w-5 md:h-5" />
                 </div>
               </div>
-              <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st11.jpg")}>
+              <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/st11.png")}>
                 <img 
-                  src="/st11.jpg" 
+                  src="/st11.png" 
                   alt="Кофейня roji 3" 
                   className="w-full h-full object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
                 />
