@@ -133,6 +133,7 @@ export function Hero() {
   <Link to="/mass-production" className="px-3 py-1.5 border border-bee-white rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider text-bee-white hover:text-bee-black hover:border-bee-yellow hover:bg-bee-yellow transition-all duration-300 cursor-pointer shadow-[0_5px_15px_rgba(255,255,255,0.05)]">Серийное производство</Link>
   <Link to="/marketplace" className="px-3 py-1.5 border border-bee-white rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider text-bee-white hover:text-bee-black hover:border-bee-yellow hover:bg-bee-yellow transition-all duration-300 cursor-pointer shadow-[0_5px_15px_rgba(255,255,255,0.05)]">МАРКЕТПЛЕЙСЫ</Link>
   <Link to="/merch" className="px-3 py-1.5 border border-bee-white rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider text-bee-white hover:text-bee-black hover:border-bee-yellow hover:bg-bee-yellow transition-all duration-300 cursor-pointer shadow-[0_5px_15px_rgba(255,255,255,0.05)]">Производство мерча</Link>
+  <Link to="/art-objects" className="px-3 py-1.5 border border-bee-white rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider text-bee-white hover:text-bee-black hover:border-bee-yellow hover:bg-bee-yellow transition-all duration-300 cursor-pointer shadow-[0_5px_15px_rgba(255,255,255,0.05)]">Арт-объекты</Link>
   </div>
  <div className="flex flex-wrap gap-4 mb-12 md:mb-20">
  <button onClick={() => {

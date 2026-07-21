@@ -115,7 +115,7 @@ export function MerchPage() {
             <div key={idx} className="bg-bee-black border border-bee-border p-6 hover:border-bee-yellow/50 transition-colors flex flex-col relative group h-full">
               <div className="text-bee-yellow/20 group-hover:text-bee-yellow/40 transition-colors font-mono text-4xl font-bold absolute top-4 right-4 leading-none">{item.step}</div>
               <div className="flex-1 mt-6 sm:mt-8 flex flex-col">
-                <h3 className="font-bold text-sm lg:text-xs xl:text-sm uppercase tracking-wider mb-3 leading-snug min-h-[2.5rem] md:min-h-[3rem] break-words" style={{ wordBreak: 'break-word', hyphens: 'auto' }}>{item.title}</h3>
+                <h3 className="font-bold text-sm lg:text-[11px] xl:text-xs 2xl:text-sm uppercase tracking-wider mb-3 leading-snug min-h-[2.5rem] md:min-h-[3rem] break-words" style={{ wordBreak: 'normal', overflowWrap: 'break-word' }}>{item.title}</h3>
                 <p className="text-sm text-bee-white/60 leading-relaxed flex-1">{item.desc}</p>
               </div>
             </div>
