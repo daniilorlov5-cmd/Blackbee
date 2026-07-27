@@ -28,7 +28,7 @@ export function MassProductionPage() {
           muted 
           playsInline
         >
-          <source src="/33.mp4" type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}33.mp4`} type="video/mp4" />
         </video>
         
         <div className="absolute top-0 inset-x-0 p-6 md:p-10 flex flex-col items-start z-10 pointer-events-none">

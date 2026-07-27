@@ -222,7 +222,7 @@ export function SaaSPage() {
             <div className="lg:col-span-7 xl:col-span-8 relative z-10 mt-12 lg:mt-0 pointer-events-auto flex flex-col items-center xl:items-end justify-start">
               <div className="relative w-full xl:w-[105%] max-w-[1100px] xl:-right-[2%] pt-0">
                 {/* Main Screenshot */}
-                <img src="/121.png" alt="Platform Dashboard" className="w-full h-auto object-contain shadow-2xl rounded-lg border border-bee-white/10" />
+                <img src={`${import.meta.env.BASE_URL}121.png`} alt="Platform Dashboard" className="w-full h-auto object-contain shadow-2xl rounded-lg border border-bee-white/10" />
               </div>
               
               {/* Flow Steps below the image */}
