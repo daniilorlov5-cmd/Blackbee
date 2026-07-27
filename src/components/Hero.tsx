@@ -98,7 +98,7 @@ export function Hero() {
  className="w-full h-full relative"
  >
  <div className="w-full h-full lg:rounded-2xl overflow-hidden shadow-none relative">
- <video src={`${import.meta.env.BASE_URL}hero-portrait.mp4`} autoPlay loop muted playsInline
+ <video src="/hero-portrait.mp4" autoPlay loop muted playsInline
  onCanPlay={(e) => (e.currentTarget.playbackRate = 1.5)}
  className="w-full h-full object-cover opacity-100 lg:opacity-100 opacity-60"
  />

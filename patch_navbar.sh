@@ -1,0 +1,3 @@
+#!/bin/bash
+sed -i -E 's/className="hidden sm:flex items-center gap-2 text-bee-yellow hover:text-bee-white transition-colors text-\[10px\] xl:text-\[11px\] uppercase tracking-\[0.3em\] font-bold ml-2 lg:ml-4 border-l border-bee-white\/10 pl-4 lg:pr-2"/className="hidden md:flex items-center gap-2 text-bee-yellow hover:text-bee-white transition-colors text-[10px] xl:text-[11px] uppercase tracking-[0.3em] font-bold ml-2 lg:ml-4 border-l border-bee-white\/10 pl-4 lg:pr-2 shrink-0 whitespace-nowrap"/g' src/components/Navbar.tsx
+sed -i -E 's/className="sm:hidden w-8 h-8 flex/className="md:hidden w-8 h-8 flex/g' src/components/Navbar.tsx

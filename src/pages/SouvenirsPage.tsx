@@ -28,7 +28,7 @@ export function SouvenirsPage() {
           muted 
           playsInline
         >
-          <source src={`${import.meta.env.BASE_URL}11.mp4`} type="video/mp4" />
+          <source src="/11.mp4" type="video/mp4" />
         </video>
         
         <div className="absolute top-0 inset-x-0 p-6 md:p-10 flex flex-col items-start z-10 pointer-events-none">

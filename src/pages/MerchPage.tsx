@@ -47,7 +47,7 @@ export function MerchPage() {
           onClick={() => setIsVideoModalOpen(true)}
         >
           <video 
-            src={`${import.meta.env.BASE_URL}merch.mp4`} 
+            src="/merch.mp4" 
             autoPlay 
             muted 
             loop 
@@ -157,9 +157,9 @@ export function MerchPage() {
               </div>
             </div>
           </div>
-          <div className="order-1 lg:order-2 relative group cursor-pointer" onClick={() => setSelectedImage(`${import.meta.env.BASE_URL}merch1.jpg`)}>
+          <div className="order-1 lg:order-2 relative group cursor-pointer" onClick={() => setSelectedImage("/merch1.png")}>
             <img 
-              src={`${import.meta.env.BASE_URL}merch1.jpg`} 
+              src="/merch1.png" 
               alt="Статуэтка Битва менторов" 
               className="w-full h-auto aspect-[4/3] object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
             />
@@ -171,9 +171,9 @@ export function MerchPage() {
 
         {/* Case 2 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div className="order-1 lg:order-1 relative group cursor-pointer" onClick={() => setSelectedImage(`${import.meta.env.BASE_URL}merch2.jpg`)}>
+          <div className="order-1 lg:order-1 relative group cursor-pointer" onClick={() => setSelectedImage("/merch2.png")}>
             <img 
-              src={`${import.meta.env.BASE_URL}merch2.jpg`} 
+              src="/merch2.png" 
               alt="Статуэтка KingStore" 
               className="w-full h-auto aspect-[4/3] object-cover rounded-sm border border-bee-border object-top group-hover:opacity-90 transition-opacity"
             />
@@ -237,9 +237,9 @@ export function MerchPage() {
             </div>
           </div>
           <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
-            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage(`${import.meta.env.BASE_URL}merch3.jpg`)}>
+            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/merch3.png")}>
               <img 
-                src={`${import.meta.env.BASE_URL}merch3.jpg`} 
+                src="/merch3.png" 
                 alt="Брелок 1" 
                 className="w-full h-full aspect-square object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
               />
@@ -248,9 +248,9 @@ export function MerchPage() {
               </div>
             </div>
             <div className="grid grid-rows-2 gap-4">
-              <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage(`${import.meta.env.BASE_URL}merch4.jpg`)}>
+              <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/merch4.png")}>
                 <img 
-                  src={`${import.meta.env.BASE_URL}merch4.jpg`} 
+                  src="/merch4.png" 
                   alt="Брелок 2" 
                   className="w-full h-full object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
                 />
@@ -258,9 +258,9 @@ export function MerchPage() {
                   <Maximize2 size={16} className="text-bee-white md:w-5 md:h-5" />
                 </div>
               </div>
-              <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage(`${import.meta.env.BASE_URL}merch5.jpg`)}>
+              <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/merch5.png")}>
                 <img 
-                  src={`${import.meta.env.BASE_URL}merch5.jpg`} 
+                  src="/merch5.png" 
                   alt="Брелок 3" 
                   className="w-full h-full object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
                 />
@@ -275,9 +275,9 @@ export function MerchPage() {
         {/* Case 4 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="order-1 lg:order-1 flex gap-4 h-full">
-            <div className="relative group cursor-pointer w-1/2 h-full" onClick={() => setSelectedImage(`${import.meta.env.BASE_URL}merch6.jpg`)}>
+            <div className="relative group cursor-pointer w-1/2 h-full" onClick={() => setSelectedImage("/merch6.png")}>
               <img 
-                src={`${import.meta.env.BASE_URL}merch6.jpg`} 
+                src="/merch6.png" 
                 alt="Брелок Аляска 1" 
                 className="w-full h-full object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
               />
@@ -285,9 +285,9 @@ export function MerchPage() {
                 <Maximize2 size={16} className="text-bee-white md:w-5 md:h-5" />
               </div>
             </div>
-            <div className="relative group cursor-pointer w-1/2 h-full" onClick={() => setSelectedImage(`${import.meta.env.BASE_URL}merch7.jpg`)}>
+            <div className="relative group cursor-pointer w-1/2 h-full" onClick={() => setSelectedImage("/merch7.png")}>
               <img 
-                src={`${import.meta.env.BASE_URL}merch7.jpg`} 
+                src="/merch7.png" 
                 alt="Брелок Аляска 2" 
                 className="w-full h-full object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
               />
@@ -352,9 +352,9 @@ export function MerchPage() {
               </div>
             </div>
           </div>
-          <div className="order-1 lg:order-2 relative group cursor-pointer" onClick={() => setSelectedImage(`${import.meta.env.BASE_URL}merch8.jpg`)}>
+          <div className="order-1 lg:order-2 relative group cursor-pointer" onClick={() => setSelectedImage("/merch8.png")}>
             <img 
-              src={`${import.meta.env.BASE_URL}merch8.jpg`} 
+              src="/merch8.png" 
               alt="Награды Доброгост" 
               className="w-full h-auto aspect-[4/3] object-cover rounded-sm border border-bee-border object-center group-hover:opacity-90 transition-opacity"
             />
@@ -383,7 +383,7 @@ export function MerchPage() {
           </button>
           <div className="relative z-10 w-full h-full max-w-5xl mx-auto flex items-center justify-center">
             <video 
-              src={`${import.meta.env.BASE_URL}merch.mp4`} 
+              src="/merch.mp4" 
               controls 
               autoPlay 
               className="max-w-full max-h-full object-contain rounded-sm shadow-[0_0_50px_rgba(0,0,0,0.5)]"

@@ -152,14 +152,14 @@ export function Navbar() {
    <>
      <Link 
        to="/" 
-       className="hidden sm:flex items-center gap-2 text-bee-yellow hover:text-bee-white transition-colors text-[10px] xl:text-[11px] uppercase tracking-[0.3em] font-bold ml-2 lg:ml-4 border-l border-bee-white/10 pl-4 lg:pr-2"
+       className="hidden xl:flex items-center gap-2 text-bee-yellow hover:text-bee-white transition-colors text-[10px] xl:text-[11px] uppercase tracking-[0.3em] font-bold ml-2 lg:ml-4 border-l border-bee-white/10 pl-4 lg:pr-2 shrink-0 whitespace-nowrap"
      >
        <ArrowLeft className="w-3 h-3" />
        На главную
      </Link>
      <Link 
        to="/" 
-       className="sm:hidden w-8 h-8 flex items-center justify-center border border-bee-border text-bee-yellow bg-bee-gray hover:bg-bee-yellow hover:text-bee-black transition-all shrink-0 ml-1"
+       className="xl:hidden w-8 h-8 flex items-center justify-center border border-bee-border text-bee-yellow bg-bee-gray hover:bg-bee-yellow hover:text-bee-black transition-all shrink-0 ml-1"
        title="На главную"
      >
        <ArrowLeft className="w-4 h-4" />
@@ -167,7 +167,7 @@ export function Navbar() {
    </>
  )}
  <a href={`https://t.me/blackbeee_group`}
- className="sm:hidden w-8 h-8 flex items-center justify-center border border-bee-border bg-bee-gray hover:bg-bee-yellow hover:text-bee-black transition-all shrink-0"
+ className="lg:hidden w-8 h-8 flex items-center justify-center border border-bee-border bg-bee-gray hover:bg-bee-yellow hover:text-bee-black transition-all shrink-0"
  >
  <Zap className="w-4 h-4" />
  </a>

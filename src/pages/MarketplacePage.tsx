@@ -44,7 +44,7 @@ export function MarketplacePage() {
             </div>
             
             <div className="flex-1 flex justify-center md:justify-end">
-              <img src={`${import.meta.env.BASE_URL}111.png`} alt="Blackbee product" className="w-full max-w-sm md:max-w-md lg:max-w-lg object-contain drop-shadow-2xl" />
+              <img src="/111.png" alt="Blackbee product" className="w-full max-w-sm md:max-w-md lg:max-w-lg object-contain drop-shadow-2xl" />
             </div>
           </div>
           
@@ -121,25 +121,25 @@ export function MarketplacePage() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-l border-black/10 [.dark_&]:border-white/10 bg-white/50 [.dark_&]:bg-bee-black/50 backdrop-blur-sm">
           <div className="border-r border-black/10 [.dark_&]:border-white/10 p-8 flex flex-col group relative overflow-hidden transition-all hover:bg-black/[0.02] [.dark_&]:hover:bg-white/[0.02]">
-            <img src={`${import.meta.env.BASE_URL}222.png`} alt="Идея" className="w-full aspect-[4/5] object-cover mb-10 bg-black/5" />
+            <img src="/222.png" alt="Идея" className="w-full aspect-[4/5] object-cover mb-10 bg-black/5" />
             <h3 className="text-2xl font-bold mb-4 uppercase tracking-tight">Идея</h3>
             <p className="text-sm md:text-base text-black/50 [.dark_&]:text-white/50 leading-relaxed font-medium">Индивидуальное<br/>3D-моделирование</p>
             <div className="absolute bottom-4 right-4 w-2 h-2 bg-black/10 [.dark_&]:bg-white/10 rounded-full group-hover:scale-150 transition-transform"></div>
           </div>
           <div className="border-r border-black/10 [.dark_&]:border-white/10 p-8 flex flex-col group relative overflow-hidden transition-all hover:bg-black/[0.02] [.dark_&]:hover:bg-white/[0.02]">
-            <img src={`${import.meta.env.BASE_URL}333.png`} alt="3D-печать" className="w-full aspect-[4/5] object-cover mb-10 bg-black/5" />
+            <img src="/333.png" alt="3D-печать" className="w-full aspect-[4/5] object-cover mb-10 bg-black/5" />
             <h3 className="text-2xl font-bold mb-4 uppercase tracking-tight">3D-печать</h3>
             <p className="text-sm md:text-base text-black/50 [.dark_&]:text-white/50 leading-relaxed font-medium">Печать под каждый заказ</p>
             <div className="absolute bottom-4 right-4 w-2 h-2 bg-black/10 [.dark_&]:bg-white/10 rounded-full group-hover:scale-150 transition-transform"></div>
           </div>
           <div className="border-r border-t sm:border-t-0 lg:border-t-0 border-black/10 [.dark_&]:border-white/10 p-8 flex flex-col group relative overflow-hidden transition-all hover:bg-black/[0.02] [.dark_&]:hover:bg-white/[0.02]">
-            <img src={`${import.meta.env.BASE_URL}444.png`} alt="Карточка товара" className="w-full aspect-[4/5] object-cover mb-10 bg-black/5" />
+            <img src="/444.png" alt="Карточка товара" className="w-full aspect-[4/5] object-cover mb-10 bg-black/5" />
             <h3 className="text-2xl font-bold mb-4 uppercase tracking-tight">Карточка товара</h3>
             <p className="text-sm md:text-base text-black/50 [.dark_&]:text-white/50 leading-relaxed font-medium">Создание магазина<br/>и карточки</p>
             <div className="absolute bottom-4 right-4 w-2 h-2 bg-black/10 [.dark_&]:bg-white/10 rounded-full group-hover:scale-150 transition-transform"></div>
           </div>
           <div className="border-r border-t lg:border-t-0 border-black/10 [.dark_&]:border-white/10 p-8 flex flex-col group relative overflow-hidden transition-all hover:bg-black/[0.02] [.dark_&]:hover:bg-white/[0.02]">
-            <img src={`${import.meta.env.BASE_URL}555.png`} alt="Продажи" className="w-full aspect-[4/5] object-cover mb-10 bg-black/5" />
+            <img src="/555.png" alt="Продажи" className="w-full aspect-[4/5] object-cover mb-10 bg-black/5" />
             <h3 className="text-2xl font-bold mb-4 uppercase tracking-tight">Продажи</h3>
             <p className="text-sm md:text-base text-black/50 [.dark_&]:text-white/50 leading-relaxed font-medium">Мы печатаем - вы<br/>получаете прибыль</p>
             <div className="absolute bottom-4 right-4 w-2 h-2 bg-black/10 [.dark_&]:bg-white/10 rounded-full group-hover:scale-150 transition-transform"></div>
@@ -216,25 +216,25 @@ export function MarketplacePage() {
               <div className="p-8 border-b border-black/10 [.dark_&]:border-white/10 flex items-center justify-between">
                 <span className="text-xl font-bold uppercase tracking-tight">Чехлы</span>
               </div>
-              <img src={`${import.meta.env.BASE_URL}666.png`} alt="Чехлы" className="w-full aspect-square object-cover" />
+              <img src="/666.png" alt="Чехлы" className="w-full aspect-square object-cover" />
             </div>
             <div className="p-0 flex flex-col group">
               <div className="p-8 border-b border-black/10 [.dark_&]:border-white/10 flex items-center justify-between">
                 <span className="text-xl font-bold uppercase tracking-tight">Для кухни</span>
               </div>
-              <img src={`${import.meta.env.BASE_URL}777.png`} alt="Для кухни" className="w-full aspect-square object-cover" />
+              <img src="/777.png" alt="Для кухни" className="w-full aspect-square object-cover" />
             </div>
             <div className="p-0 flex flex-col group">
               <div className="p-8 border-b border-black/10 [.dark_&]:border-white/10 flex items-center justify-between">
                 <span className="text-xl font-bold uppercase tracking-tight">Инструменты</span>
               </div>
-              <img src={`${import.meta.env.BASE_URL}888.png`} alt="Инструменты" className="w-full aspect-square object-cover" />
+              <img src="/888.png" alt="Инструменты" className="w-full aspect-square object-cover" />
             </div>
             <div className="p-0 flex flex-col group">
               <div className="p-8 border-b border-black/10 [.dark_&]:border-white/10 flex items-center justify-between">
                 <span className="text-xl font-bold uppercase tracking-tight">Аксессуары</span>
               </div>
-              <img src={`${import.meta.env.BASE_URL}999.png`} alt="Аксессуары" className="w-full aspect-square object-cover" />
+              <img src="/999.png" alt="Аксессуары" className="w-full aspect-square object-cover" />
             </div>
           </div>
         </div>
@@ -292,13 +292,13 @@ export function MarketplacePage() {
           
           <div className="relative flex flex-col md:flex-row items-center gap-12 bg-white [.dark_&]:bg-bee-black p-8 md:p-12 shadow-sm border border-black/5 [.dark_&]:border-white/5">
             <div className="w-full md:w-1/2">
-              <img src={`${import.meta.env.BASE_URL}1111.png`} alt="Review product" className="w-full aspect-square object-cover shadow-xl" />
+              <img src="/1111.png" alt="Review product" className="w-full aspect-square object-cover shadow-xl" />
             </div>
             
             <div className="w-full md:w-1/2 space-y-8">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-black/10 flex items-center justify-center overflow-hidden">
-                  <img src={`${import.meta.env.BASE_URL}alexey.png`} alt="Алексей" className="w-full h-full object-cover" />
+                  <img src="/alexey.png" alt="Алексей" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h4 className="font-bold text-lg uppercase">Алексей</h4>
@@ -320,7 +320,7 @@ export function MarketplacePage() {
           
           <div className="flex flex-col md:flex-row gap-16 items-start">
             <div className="w-full md:w-1/2">
-              <img src={`${import.meta.env.BASE_URL}1212.png`} alt="3D Printing process" className="w-full aspect-[4/3] object-cover shadow-2xl rounded-sm" />
+              <img src="/1212.png" alt="3D Printing process" className="w-full aspect-[4/3] object-cover shadow-2xl rounded-sm" />
             </div>
             
             <div className="w-full md:w-1/2 grid grid-cols-1 gap-6 text-black [.dark_&]:text-white">
@@ -463,7 +463,7 @@ export function MarketplacePage() {
           </div>
           
           <div className="w-full md:w-1/2">
-            <img src={`${import.meta.env.BASE_URL}141414.png`} alt="Bear model" className="w-full max-w-lg mx-auto object-contain drop-shadow-2xl" />
+            <img src="/141414.png" alt="Bear model" className="w-full max-w-lg mx-auto object-contain drop-shadow-2xl" />
           </div>
         </div>
       </div>
