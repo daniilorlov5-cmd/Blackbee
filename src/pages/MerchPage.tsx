@@ -236,33 +236,33 @@ export function MerchPage() {
               </div>
             </div>
           </div>
-          <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
-            <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/merch3.png")}>
+          <div className="order-1 lg:order-2 grid grid-cols-2 gap-3 sm:gap-4 h-[320px] sm:h-[420px] md:h-[480px]">
+            <div className="relative group cursor-pointer w-full h-full overflow-hidden rounded-sm border border-bee-border" onClick={() => setSelectedImage("/merch3.png")}>
               <img 
                 src="/merch3.png" 
                 alt="Брелок 1" 
-                className="w-full h-full aspect-square object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
+                className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
               />
               <div className="absolute top-3 right-3 bg-bee-black/60 p-1.5 md:p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm border border-bee-white/10 pointer-events-none">
                 <Maximize2 size={16} className="text-bee-white md:w-5 md:h-5" />
               </div>
             </div>
-            <div className="grid grid-rows-2 gap-4">
-              <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/merch4.png")}>
+            <div className="grid grid-rows-2 gap-3 sm:gap-4 h-full">
+              <div className="relative group cursor-pointer w-full h-full overflow-hidden rounded-sm border border-bee-border" onClick={() => setSelectedImage("/merch4.png")}>
                 <img 
                   src="/merch4.png" 
                   alt="Брелок 2" 
-                  className="w-full h-full object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
                 />
                 <div className="absolute top-3 right-3 bg-bee-black/60 p-1.5 md:p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm border border-bee-white/10 pointer-events-none">
                   <Maximize2 size={16} className="text-bee-white md:w-5 md:h-5" />
                 </div>
               </div>
-              <div className="relative group cursor-pointer h-full" onClick={() => setSelectedImage("/merch5.png")}>
+              <div className="relative group cursor-pointer w-full h-full overflow-hidden rounded-sm border border-bee-border" onClick={() => setSelectedImage("/merch5.png")}>
                 <img 
                   src="/merch5.png" 
                   alt="Брелок 3" 
-                  className="w-full h-full object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
                 />
                 <div className="absolute top-3 right-3 bg-bee-black/60 p-1.5 md:p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm border border-bee-white/10 pointer-events-none">
                   <Maximize2 size={16} className="text-bee-white md:w-5 md:h-5" />
@@ -274,22 +274,22 @@ export function MerchPage() {
 
         {/* Case 4 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div className="order-1 lg:order-1 flex gap-4 h-full">
-            <div className="relative group cursor-pointer w-1/2 h-full" onClick={() => setSelectedImage("/merch6.png")}>
+          <div className="order-1 lg:order-1 grid grid-cols-2 gap-3 sm:gap-4 h-[320px] sm:h-[420px] md:h-[480px]">
+            <div className="relative group cursor-pointer w-full h-full overflow-hidden rounded-sm border border-bee-border" onClick={() => setSelectedImage("/merch6.png")}>
               <img 
                 src="/merch6.png" 
                 alt="Брелок Аляска 1" 
-                className="w-full h-full object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
+                className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
               />
               <div className="absolute top-3 right-3 bg-bee-black/60 p-1.5 md:p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm border border-bee-white/10 pointer-events-none">
                 <Maximize2 size={16} className="text-bee-white md:w-5 md:h-5" />
               </div>
             </div>
-            <div className="relative group cursor-pointer w-1/2 h-full" onClick={() => setSelectedImage("/merch7.png")}>
+            <div className="relative group cursor-pointer w-full h-full overflow-hidden rounded-sm border border-bee-border" onClick={() => setSelectedImage("/merch7.png")}>
               <img 
                 src="/merch7.png" 
                 alt="Брелок Аляска 2" 
-                className="w-full h-full object-cover rounded-sm border border-bee-border group-hover:opacity-90 transition-opacity"
+                className="absolute inset-0 w-full h-full object-cover group-hover:opacity-90 transition-opacity"
               />
               <div className="absolute top-3 right-3 bg-bee-black/60 p-1.5 md:p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm border border-bee-white/10 pointer-events-none">
                 <Maximize2 size={16} className="text-bee-white md:w-5 md:h-5" />

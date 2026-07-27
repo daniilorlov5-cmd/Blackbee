@@ -66,9 +66,9 @@ export function Navbar() {
     <>
       <nav className="fixed top-0 left-0 w-full z-50 border-b border-bee-white/10 bg-bee-black/95 backdrop-blur-md">
         <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 h-16 md:h-20 flex items-center justify-between">
-          {/* Left section: Logo + О компании */}
-          <div className="flex items-center shrink-0 lg:flex-1">
-            <a href="https://bbee.pro" target="_blank" rel="noopener noreferrer" className="flex items-center pr-3 group/logo">
+          {/* Left section: Logo + О компании + На главную */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 lg:flex-1">
+            <a href="https://bbee.pro" target="_blank" rel="noopener noreferrer" className="flex items-center pr-2 group/logo">
               <Logo className="h-5 sm:h-6 md:h-7 lg:h-8 xl:h-10 text-bee-logo group-hover/logo:scale-105 transition-transform duration-500 hover:text-bee-white" />
             </a>
             <a 
@@ -81,6 +81,16 @@ export function Navbar() {
                 О компании
               </span>
             </a>
+            {location.pathname !== '/' && (
+              <Link 
+                to="/" 
+                className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 bg-bee-yellow text-bee-black font-black uppercase text-[10px] sm:text-xs tracking-[0.15em] rounded-sm hover:bg-bee-white hover:text-bee-black transition-all ml-1 sm:ml-2 shadow-md shrink-0 border border-bee-yellow"
+                title="Вернуться на главную страницу"
+              >
+                <ArrowLeft className="w-3.5 h-3.5 stroke-[3]" />
+                <span className="whitespace-nowrap">На главную</span>
+              </Link>
+            )}
           </div>
  {/* Desktop Navigation */}
  <div className="hidden lg:flex items-center justify-center gap-4 xl:gap-6 px-8 flex-none">
@@ -148,24 +158,6 @@ export function Navbar() {
     >
       Связаться
     </a>
- {location.pathname !== '/' && (
-   <>
-     <Link 
-       to="/" 
-       className="hidden xl:flex items-center gap-2 text-bee-yellow hover:text-bee-white transition-colors text-[10px] xl:text-[11px] uppercase tracking-[0.3em] font-bold ml-2 lg:ml-4 border-l border-bee-white/10 pl-4 lg:pr-2 shrink-0 whitespace-nowrap"
-     >
-       <ArrowLeft className="w-3 h-3" />
-       На главную
-     </Link>
-     <Link 
-       to="/" 
-       className="xl:hidden w-8 h-8 flex items-center justify-center border border-bee-border text-bee-yellow bg-bee-gray hover:bg-bee-yellow hover:text-bee-black transition-all shrink-0 ml-1"
-       title="На главную"
-     >
-       <ArrowLeft className="w-4 h-4" />
-     </Link>
-   </>
- )}
  <a href={`https://t.me/blackbeee_group`}
  className="lg:hidden w-8 h-8 flex items-center justify-center border border-bee-border bg-bee-gray hover:bg-bee-yellow hover:text-bee-black transition-all shrink-0"
  >
@@ -191,6 +183,16 @@ export function Navbar() {
  className="fixed inset-0 z-40 bg-bee-black pt-20 pb-6 px-6 lg:hidden overflow-y-auto flex flex-col"
  >
  <div className="flex flex-col gap-8 mt-8">
+ {location.pathname !== '/' && (
+   <Link
+     to="/"
+     onClick={() => setIsMenuOpen(false)}
+     className="flex items-center justify-center gap-2 px-5 py-3 bg-bee-yellow text-bee-black font-black uppercase text-sm tracking-[0.15em] rounded-sm hover:bg-bee-white transition-all w-full shadow-lg border border-bee-yellow"
+   >
+     <ArrowLeft className="w-4 h-4 stroke-[3]" />
+     <span>На главную страницу</span>
+   </Link>
+ )}
  {navLinks.map((item) => (
  <a key={item.id} href={`#${item.id}`}
  onClick={(e) => {
