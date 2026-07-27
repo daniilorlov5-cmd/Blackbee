@@ -50,14 +50,14 @@ export function Footer() {
  <div className="flex-grow w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
  <input type="text" id="footer-contact-input"
  placeholder="@username или +7..."
- className="bg-bee-black border border-bee-border px-6 py-4 text-sm font-light text-bee-white outline-none focus:border-bee-yellow transition-colors placeholder:text-bee-text-muted/50 w-full"
+ className="bg-bee-black border border-bee-border px-6 h-14 text-sm font-light text-bee-white outline-none focus:border-bee-yellow transition-colors placeholder:text-bee-text-muted/50 w-full"
  required
  />
  {/* Custom Dropdown */}
- <div className="relative w-full">
+ <div className="relative w-full h-14">
  <button type="button"
  onClick={() => setIsSelectOpen(!isSelectOpen)}
- className="w-full bg-bee-black border border-bee-border px-6 py-4 text-sm font-light text-bee-white outline-none flex items-center justify-between hover:border-bee-yellow transition-colors text-left"
+ className="w-full h-full bg-bee-black border border-bee-border px-6 text-sm font-light text-bee-white outline-none flex items-center justify-between hover:border-bee-yellow transition-colors text-left"
  >
  <span className={`truncate ${selectedOption ==="Вы кто?" ?"text-bee-text-muted/50" :"text-bee-white"}`}>
  {selectedOption}
@@ -99,7 +99,7 @@ export function Footer() {
  telegram: isTelegram ? val : '',
  role: selectedOption ==="Вы кто?" ?"" : selectedOption });
  }}
- className="w-full bg-bee-yellow text-bee-black px-6 md:px-8 py-4 text-[10px] font-bold uppercase tracking-widest hover:bg-bee-white active:scale-95 transition-all whitespace-nowrap md:col-span-2 lg:col-span-1 shadow-[0_10px_20px_rgba(255,215,0,0.1)] text-center"
+ className="w-full h-14 bg-bee-yellow text-bee-black px-6 md:px-8 text-[10px] font-bold uppercase tracking-widest hover:bg-bee-white active:scale-95 transition-all whitespace-nowrap md:col-span-2 lg:col-span-1 shadow-[0_10px_20px_rgba(255,215,0,0.1)] flex items-center justify-center"
  >
  Отправить запрос
  </button>
