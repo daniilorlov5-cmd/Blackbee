@@ -66,110 +66,113 @@ export function Navbar() {
     <>
       <nav className="fixed top-0 left-0 w-full z-50 border-b border-bee-white/10 bg-bee-black/95 backdrop-blur-md">
         <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 h-16 md:h-20 flex items-center justify-between">
-          {/* Left section: Logo + О компании + На главную */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0 lg:flex-1">
-            <a href="https://bbee.pro" target="_blank" rel="noopener noreferrer" className="flex items-center pr-2 group/logo">
+          {/* Left section: Logo + О компании / На главную */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <a href="https://bbee.pro" target="_blank" rel="noopener noreferrer" className="flex items-center pr-1 group/logo shrink-0">
               <Logo className="h-5 sm:h-6 md:h-7 lg:h-8 xl:h-10 text-bee-logo group-hover/logo:scale-105 transition-transform duration-500 hover:text-bee-white" />
             </a>
-            <a 
-              href="https://bbee.pro" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hidden sm:flex items-center border-l border-bee-white/20 pl-3 h-6 transition-colors hover:border-bee-yellow/50 group/company"
-            >
-              <span className="text-[9px] xl:text-[10px] uppercase tracking-[0.3em] font-semibold text-bee-white/50 group-hover/company:text-bee-yellow transition-colors whitespace-nowrap leading-none">
-                О компании
-              </span>
-            </a>
-            {location.pathname !== '/' && (
+
+            {location.pathname !== '/' ? (
               <Link 
                 to="/" 
-                className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 bg-bee-yellow text-bee-black font-black uppercase text-[10px] sm:text-xs tracking-[0.15em] rounded-sm hover:bg-bee-white hover:text-bee-black transition-all ml-1 sm:ml-2 shadow-md shrink-0 border border-bee-yellow"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 bg-bee-black text-bee-white border border-bee-yellow/50 hover:border-bee-yellow hover:bg-bee-yellow hover:text-bee-black transition-all rounded-sm font-extrabold text-[10px] sm:text-xs uppercase tracking-[0.15em] shrink-0 ml-1 shadow-sm group"
                 title="Вернуться на главную страницу"
               >
-                <ArrowLeft className="w-3.5 h-3.5 stroke-[3]" />
+                <ArrowLeft className="w-3.5 h-3.5 text-bee-yellow group-hover:text-bee-black transition-colors stroke-[2.5]" />
                 <span className="whitespace-nowrap">На главную</span>
               </Link>
+            ) : (
+              <a 
+                href="https://bbee.pro" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hidden sm:flex items-center border-l border-bee-white/20 pl-3 h-6 transition-colors hover:border-bee-yellow/50 group/company shrink-0"
+              >
+                <span className="text-[9px] xl:text-[10px] uppercase tracking-[0.3em] font-semibold text-bee-white/50 group-hover/company:text-bee-yellow transition-colors whitespace-nowrap leading-none">
+                  О компании
+                </span>
+              </a>
             )}
           </div>
- {/* Desktop Navigation */}
- <div className="hidden lg:flex items-center justify-center gap-4 xl:gap-6 px-8 flex-none">
- {navLinks.map((item) => (
- <a key={item.id} href={`#${item.id}`}
- onClick={(e) => {
- e.preventDefault();
- handleScroll(item.id);
- }}
- className="group flex items-center text-[10px] xl:text-[11px] uppercase tracking-[0.2em] xl:tracking-[0.3em] font-semibold text-bee-white/70 hover:text-bee-yellow transition-colors whitespace-nowrap"
- >
- {item.name}
- <svg className="w-3 h-3 ml-1 opacity-40 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
- <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
- </svg>
- </a>
- ))}
- </div>
 
-  {/* Right Actions */}
-  <div className="flex items-center justify-end gap-2 sm:gap-4 lg:flex-1">
-    <div className="hidden lg:flex items-center gap-4 xl:gap-5 mr-1">
-      <div className="relative">
-        <button 
-          onClick={handleCopy}
-          className="text-sm lg:text-base xl:text-lg font-black text-bee-white hover:text-bee-yellow transition-colors whitespace-nowrap tracking-wide cursor-pointer focus:outline-none"
-          title="Нажмите, чтобы скопировать номер"
-        >
-          +7 937 710 7767
-        </button>
-        <AnimatePresence>
-          {copied && (
-            <motion.div 
-              initial={{ opacity: 0, y: 10, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 10, scale: 0.95 }}
-              className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5 bg-bee-yellow text-bee-black text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-sm shadow-xl whitespace-nowrap pointer-events-none z-50 flex items-center gap-1.5 border border-bee-yellow"
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center justify-center gap-3 xl:gap-6 px-2 xl:px-8 flex-1 min-w-0">
+            {navLinks.map((item) => (
+              <a key={item.id} href={`#${item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleScroll(item.id);
+                }}
+                className="group flex items-center text-[10px] xl:text-[11px] uppercase tracking-[0.15em] xl:tracking-[0.3em] font-semibold text-bee-white/70 hover:text-bee-yellow transition-colors whitespace-nowrap"
+              >
+                {item.name}
+                <svg className="w-3 h-3 ml-1 opacity-40 group-hover:opacity-100 transition-opacity shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </a>
+            ))}
+          </div>
+
+          {/* Right Actions */}
+          <div className="flex items-center justify-end gap-2 sm:gap-3 xl:gap-4 shrink-0">
+            <div className="hidden md:flex items-center gap-3 xl:gap-5">
+              <div className="relative">
+                <button 
+                  onClick={handleCopy}
+                  className="hidden xl:block text-sm xl:text-base font-black text-bee-white hover:text-bee-yellow transition-colors whitespace-nowrap tracking-wide cursor-pointer focus:outline-none"
+                  title="Нажмите, чтобы скопировать номер"
+                >
+                  +7 937 710 7767
+                </button>
+                <AnimatePresence>
+                  {copied && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-3 py-1.5 bg-bee-yellow text-bee-black text-[10px] sm:text-xs font-bold uppercase tracking-wider rounded-sm shadow-xl whitespace-nowrap pointer-events-none z-50 flex items-center gap-1.5 border border-bee-yellow"
+                    >
+                      <Check className="w-3.5 h-3.5" /> Скопировано
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+              <a href={`https://t.me/blackbeee_group?text=${encodeURIComponent("Здравствуйте, у меня есть запрос: ")}`}
+                target="_blank"
+                rel="noreferrer"
+                className="w-9 h-9 sm:w-10 sm:h-10 xl:w-11 xl:h-11 flex items-center justify-center border border-bee-border text-bee-yellow hover:bg-bee-yellow hover:text-bee-black hover:border-bee-yellow transition-all rounded-sm bg-bee-gray shrink-0"
+                title="Telegram"
+              >
+                <Send className="w-4 h-4 xl:w-5 xl:h-5" />
+              </a>
+            </div>
+            <button onClick={() => setIsLight(!isLight)}
+              className="w-9 h-9 sm:w-10 sm:h-10 xl:w-11 xl:h-11 flex items-center justify-center border border-bee-border hover:bg-bee-yellow hover:text-bee-black hover:border-bee-yellow transition-all rounded-sm group bg-bee-gray shrink-0"
+              title="Сменить тему"
             >
-              <Check className="w-3.5 h-3.5" /> Скопировано
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-      <a href={`https://t.me/blackbeee_group?text=${encodeURIComponent("Здравствуйте, у меня есть запрос: ")}`}
-        target="_blank"
-        rel="noreferrer"
-        className="w-10 h-10 lg:w-11 lg:h-11 xl:w-12 xl:h-12 flex items-center justify-center border border-bee-border text-bee-yellow hover:bg-bee-yellow hover:text-bee-black hover:border-bee-yellow transition-all rounded-sm bg-bee-gray shrink-0"
-        title="Telegram"
-      >
-        <Send className="w-5 h-5 lg:w-[22px] lg:h-[22px]" />
-      </a>
-    </div>
-    <button onClick={() => setIsLight(!isLight)}
-      className="w-10 h-10 lg:w-11 lg:h-11 xl:w-12 xl:h-12 flex items-center justify-center border border-bee-border hover:bg-bee-yellow hover:text-bee-black hover:border-bee-yellow transition-all rounded-sm group bg-bee-gray shrink-0"
-      title="Сменить тему"
-    >
-      {isLight ? <Moon className="w-5 h-5 lg:w-[22px] lg:h-[22px]" /> : <Sun className="w-5 h-5 lg:w-[22px] lg:h-[22px]" />}
-    </button>
-    <a href={`https://t.me/blackbeee_group?text=${encodeURIComponent(
-      `Здравствуйте, у меня есть запрос: `
-    )}`}
-      target="_blank"
-      rel="noreferrer"
-      className="hidden sm:inline-block px-5 py-2.5 text-xs lg:px-6 lg:py-3 lg:text-sm border border-bee-border text-bee-white font-extrabold uppercase tracking-[0.1em] md:tracking-[0.2em] hover:bg-bee-yellow hover:text-bee-black hover:border-bee-yellow transition-all whitespace-nowrap shrink-0"
-    >
-      Связаться
-    </a>
- <a href={`https://t.me/blackbeee_group`}
- className="lg:hidden w-8 h-8 flex items-center justify-center border border-bee-border bg-bee-gray hover:bg-bee-yellow hover:text-bee-black transition-all shrink-0"
- >
- <Zap className="w-4 h-4" />
- </a>
- {/* Mobile Menu Toggle */}
- <button onClick={() => setIsMenuOpen(!isMenuOpen)}
- className="lg:hidden w-8 h-8 flex items-center justify-center text-bee-white hover:text-bee-yellow transition-colors shrink-0"
- >
- {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
- </button>
- </div>
+              {isLight ? <Moon className="w-4 h-4 xl:w-5 xl:h-5" /> : <Sun className="w-4 h-4 xl:w-5 xl:h-5" />}
+            </button>
+            <a href={`https://t.me/blackbeee_group?text=${encodeURIComponent(
+              `Здравствуйте, у меня есть запрос: `
+            )}`}
+              target="_blank"
+              rel="noreferrer"
+              className="hidden sm:inline-flex items-center justify-center px-3.5 py-2 xl:px-5 xl:py-2.5 text-xs xl:text-sm border border-bee-border text-bee-white font-extrabold uppercase tracking-[0.1em] xl:tracking-[0.2em] hover:bg-bee-yellow hover:text-bee-black hover:border-bee-yellow transition-all whitespace-nowrap shrink-0"
+            >
+              Связаться
+            </a>
+            <a href={`https://t.me/blackbeee_group`}
+              className="md:hidden w-9 h-9 flex items-center justify-center border border-bee-border bg-bee-gray hover:bg-bee-yellow hover:text-bee-black transition-all shrink-0"
+            >
+              <Zap className="w-4 h-4" />
+            </a>
+            {/* Mobile Menu Toggle */}
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden w-9 h-9 flex items-center justify-center text-bee-white hover:text-bee-yellow transition-colors shrink-0"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
  </div>
  </nav>
 
