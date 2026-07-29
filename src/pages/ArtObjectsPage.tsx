@@ -14,19 +14,24 @@ export function ArtObjectsPage() {
   return (
     <div className="pt-32 pb-20 px-6 md:px-12 lg:px-20 max-w-7xl mx-auto min-h-screen flex flex-col gap-16 md:gap-24">
       {/* 1. Header Section */}
-      <div className="space-y-6">
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black uppercase tracking-tight text-bee-white leading-[1]">
-          Производство <br className="hidden lg:block"/><span className="text-bee-yellow">арт-объектов</span>
-        </h1>
-        <p className="text-lg md:text-xl text-bee-white/60 max-w-3xl leading-relaxed font-medium">
-          Создаем эксклюзивные крупногабаритные арт-объекты и декорации для выставок, форумов, торговых центров и городских пространств. Любые формы и масштабы благодаря промышленной 3D-печати.
-        </p>
-        <button 
-          onClick={() => openModal()}
-          className="mt-4 px-8 py-4 bg-bee-yellow text-bee-black font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255,215,0,0.2)]"
-        >
-          Обсудить проект
-        </button>
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start lg:items-center justify-between">
+        <div className="flex-1 space-y-6 lg:space-y-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black uppercase tracking-tight text-bee-white leading-[1]">
+            Производство <br className="hidden lg:block"/><span className="text-bee-yellow">арт-объектов</span>
+          </h1>
+          <p className="text-lg md:text-xl text-bee-white/60 max-w-xl leading-relaxed font-medium">
+            Создаем эксклюзивные крупногабаритные арт-объекты и декорации для выставок, форумов, торговых центров и городских пространств. Любые формы и масштабы благодаря промышленной 3D-печати.
+          </p>
+          <button 
+            onClick={() => openModal()}
+            className="mt-4 px-8 py-4 bg-bee-yellow text-bee-black font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255,215,0,0.2)]"
+          >
+            Обсудить проект
+          </button>
+        </div>
+        <div className="relative w-full sm:w-2/3 md:w-1/2 lg:w-[380px] xl:w-[460px] shrink-0 rounded-sm overflow-hidden shadow-2xl">
+          <img src="/k1.png" alt="Производство арт-объектов" className="w-full aspect-[3/4] object-cover opacity-90" />
+        </div>
       </div>
 
       {/* 2. Cases Section ("Наши кейсы") */}

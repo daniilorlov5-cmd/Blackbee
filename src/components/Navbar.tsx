@@ -48,8 +48,6 @@ export function Navbar() {
 
  const navLinks = [
  { name:"О студии", id:"что-мы-делаем" },
- { name:"Рассчитать", id:"калькулятор" },
- { name:"Галерея изделий", id:"кейсы" },
  { name:"Стать партнером", id:"стать-партнером" }
  ];
 
@@ -69,7 +67,10 @@ export function Navbar() {
           {/* Left section: Logo + О компании / На главную */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <a href="https://bbee.pro" target="_blank" rel="noopener noreferrer" className="flex items-center pr-1 group/logo shrink-0">
-              <Logo className="h-5 sm:h-6 md:h-7 lg:h-8 xl:h-10 text-bee-logo group-hover/logo:scale-105 transition-transform duration-500 hover:text-bee-white" />
+              <Logo 
+                className="h-5 sm:h-6 md:h-7 lg:h-8 xl:h-10 text-bee-logo group-hover/logo:scale-105 transition-transform duration-500 hover:text-bee-white"
+                variant="full"
+              />
             </a>
 
             {location.pathname !== '/' ? (
@@ -96,7 +97,7 @@ export function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center justify-center gap-3 xl:gap-6 px-2 xl:px-8 flex-1 min-w-0">
+          <div className="hidden lg:flex items-center justify-start gap-4 xl:gap-8 px-6 xl:px-10 flex-1 min-w-0">
             {navLinks.map((item) => (
               <a key={item.id} href={`#${item.id}`}
                 onClick={(e) => {
